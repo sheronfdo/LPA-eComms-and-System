@@ -63,22 +63,7 @@
 
 <body>
 
-    <?php
-$cart = new cartservice();
-if (isset($_POST["cart"])) {
 
-    $clientId = $_SESSION['clientid'];
-    $stockId = '1';
-    $qty = $_POST["qty"];
-    $size = $_POST["size"];
-
-    $cart-> __constructWithoutId($clientId, $stockId, $qty, $size);
-    $cart->insert();
-
-}
-
-
-?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
@@ -87,52 +72,68 @@ if (isset($_POST["cart"])) {
 
         ?> 
     </nav>
-<form action='product.php' method='POST'> 
+<form action='addcart.php' method='POST'> 
     <section class="container sproduct my-5 pt-5">
-        <div class="row mt-5">
-            <div class="col-lg-5 col-md-12 col-12 ">
-                <img class="img-fluid w-100 pb-1" src="img/shop/1.jpg" alt="" id="MainImg">
 
-                <div class="small-img-group mb-2">
-                    <div class="small-img-col">
-                        <img src="img/shop/25.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/shop/26.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/shop/23.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/shop/1.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-12">
-                <h6>Home / T-Shirt</h6>
-                <h3 class="py-4">Men's Fashion T Shirt</h3>
-                <h2>$56.00</h2>
-                <select class="my-3" name = 'size'>
-                    <option >Select Size</option>
-                    <option >Small</option>
-                    <option >Medium</option>
-                    <option >Large</option>
-                    <option >XL</option>
-                    <option >XXL</option>
-                
-                </select>
+
+
+    <?php
+            $name = null;
+            $des = null;
+            $price = null;
+            $pId = $_GET['id'];
+            $image = '';
+$query3 = "SELECT  * From lpa_stock WHERE lpa_stock_ID='$pId'";
+$result3 = $db->getfromdb($query3);
+$resultCheck3 = mysqli_num_rows($result3);
+
+if ($resultCheck3 > 0) {
+
+    while ($row3 = mysqli_fetch_assoc($result3)) {
+
+        $name = $row3["lpa_stock_name"];
+        $des = $row3["lpa_stock_desc"];
+        $price = $row3["lpa_stock_price"];
+
+
+
+        $query = "SELECT  * From lpa_stock_image WHERE lpa_stock_ID='$pId'";
+$result = $db->getfromdb($query);
+$resultCheck = mysqli_num_rows($result);
+
+if ($resultCheck > 0) {
+
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $image = $row["lpa_stock_image"];
+
+
+    }}
+echo '        <div class="row mt-5">
+<div class="col-lg-5 col-md-12 col-12 ">
+    <img class="img-fluid w-100 pb-1" src="./admin/uploads/images/'.$image.'" alt="" id="MainImg">
+
+
+</div>
+<div class="col-lg-6 col-md-12 col-12">
+    <h6>Home / T-Shirt</h6>
+    <h3 class="py-4">'.$name.'</h3>
+    <h2>'.$price.'</h2>
+   
 </form>
-                <input type="number" value="1" name= 'qty'>
-                <button class="buy-btn" name="cart">Add To Cart</button>
+    <input type="number" value="1" name= "qty">
+    <button class="buy-btn" name="cart" value = '.$pId.'>Add To Cart</button>
 
-                <h4 class="mt-5 mb-5">Product Details</h4>
-                <span>This is a 100% cotton classic fit product.This is a 100% cotton
-                     classic fit product.This is a 100% cotton classic fit product.This is a 100% cotton classic fit product.
-                     This is a 100% cotton classic fit product.This is a 100% cotton classic fit product.
-                     This is a 100% cotton classic fit product.
-                     This is a 100% cotton classic fit product.</span>
-            </div>
-        </div>
+    <h4 class="mt-5 mb-5">Product Details</h4>
+    <span>'.$des.'</span>
+</div>
+</div>';
+
+    }}
+
+
+?>
+
     </section>
 
     

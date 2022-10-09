@@ -11,7 +11,12 @@
         $this->db = new dbconnect();
         } 
         public function insert(){
-            $query = "INSERT INTO `lpa_cart`(`lpa_client_id`, `lpa_stock_id`, `lpa_qty`, `lpa_size`) VALUES ('" . $this->getClientId() . "','" . $this->getStockId() . "','" . $this->getQty() . "','". $this->getSize() . "')";
+            $query = "INSERT INTO `lpa_cart`(`lpa_client_id`, `lpa_stock_id`, `lpa_qty`) VALUES ('" . $this->getClientId() . "','" . $this->getStockId() . "','" . $this->getQty() . "')";
+           
+        $this->db->insertIntoDb($query);
+        }
+        public function delete(){
+            $query = "UPDATE `lpa_cart` SET status = '0' WHERE lpa_stock_id = '" . $this->getCartId() . "'";
            
         $this->db->insertIntoDb($query);
         }

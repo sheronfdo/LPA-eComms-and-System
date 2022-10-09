@@ -1,3 +1,8 @@
+<?php
+require_once ('./database/database.php');
+
+$db = new dbConnect();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -64,7 +69,7 @@
         <hr>
     </section>
 
-
+    <form action='removefromchekout.php' method='POST'>
 
     <section class="container my-5" id="cart1">
 
@@ -81,67 +86,86 @@
                         <td>Quantity</td>
                         <td>Subtotal</td>
                         <td>Remove</td>
+                        <td>Complete</td>
 
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
 
-                        <td><img src="img/shop/26.jpg" alt=""></td>
-                        <td>
-                            <h5>234523</h5>
-                        </td>
-                        <td>
-                            <h5>Men T-Shirt</h5>
-                        </td>
-                        <td>
-                            <h5>$54</h5>
-                        </td>
-                        <td><input class="w-25 pl-1" type="number" value="1"></td>
-                        <td>
-                            <h5>$54</h5>
-                        </td>
-                        <td><a href="#"><i class="fa fa-trash"></i></i></a></td>
-                    </tr>
+                <?php
+        $itemname = null;
+        $price = null;
+        $subtot = null;
+        $image1 = null;
+$query = "SELECT  * From lpa_cart WHERE status='1'";
+$result = $db->getfromdb($query);
+$resultCheck = mysqli_num_rows($result);
 
-                    <tr>
+if ($resultCheck > 0) {
 
-                        <td><img src="img/shop/24.jpg" alt=""></td>
-                        <td>
-                            <h5>234523</h5>
-                        </td>
-                        <td>
-                            <h5>Men T-Shirt</h5>
-                        </td>
-                        <td>
-                            <h5>$54</h5>
-                        </td>
-                        <td><input class="w-25 pl-1" type="number" value="1"></td>
-                        <td>
-                            <h5>$54</h5>
-                        </td>
-                        <td><a href="#"><i class="fa fa-trash"></i></i></a></td>
-                    </tr>
+    while ($row = mysqli_fetch_assoc($result)) {
 
-                    <tr>
+        $qty = (int)$row["lpa_qty"];
+        $stockid = $row["lpa_stock_id"];
+        $clientid = $row["lpa_client_id"];
+        $cartid = $row["lpa_cart_id"];
 
-                        <td><img src="img/shop/25.jpg" alt=""></td>
-                        <td>
-                            <h5>234523</h5>
-                        </td>
-                        <td>
-                            <h5>Men T-Shirt</h5>
-                        </td>
-                        <td>
-                            <h5>$54</h5>
-                        </td>
-                        <td><input class="w-25 pl-1" type="number" value="1"></td>
-                        <td>
-                            <h5>$54</h5>
-                        </td>
-                        <td><a href="#"><i class="fa fa-trash"></i></i></a></td>
-                    </tr>
+        $query2 = "SELECT  * From lpa_stock WHERE lpa_stock_ID='$stockid'";
+$result2 = $db->getfromdb($query2);
+$resultCheck2 = mysqli_num_rows($result2);
+
+if ($resultCheck2 > 0) {
+
+    while ($row2 = mysqli_fetch_assoc($result2)) {
+
+        $itemname = $row2["lpa_stock_name"];
+        $price = (double)$row2["lpa_stock_price"];
+        $subtot = ($price*$qty);
+    }}
+
+
+    $query3 = "SELECT  * From lpa_stock_image WHERE lpa_stock_ID='$stockid'";
+    $result3 = $db->getfromdb($query3);
+    $resultCheck3 = mysqli_num_rows($result3);
+    
+    if ($resultCheck3 > 0) {
+    
+        while ($row3 = mysqli_fetch_assoc($result3)) {
+    
+            $image1 = $row3["lpa_stock_image"];
+
+        }}
+
+
+        echo'<tr>
+
+        <td><img src="admin/uploads/images/'.$image1.'" alt=""></td>
+        <td>
+            <h5>'.$stockid.'</h5>
+        </td>
+        <td>
+            <h5>'.$itemname.'</h5>
+        </td>
+        <td>
+            <h5>'.$price.'</h5>
+        </td>
+        <td>'.$qty.'</td>
+        <td>
+            <h5>'.$subtot.'</h5>
+        </td>
+        </form>   
+        <td><button class="fa fa-trash" value= '.$stockid.' name= "remove"></button></i></i></a></td>
+        <td><button class="ml-auto">PROCEED TO CHECKOUT </button></td>
+    </tr>
+';
+    }}
+
+
+
+
+?>
+         
                 </tbody>
             </table>
         </div>
@@ -153,31 +177,7 @@
 
 
     </section>
-
-    <section id="cart-bottom" class="container">
-
-        <div class="row">
-            <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
-                <div>
-                    <h5>COUPON</h5>
-                    <p>Enter your coupon code if you have one.</p>
-                    <input type="text" placeholder="Coupon Code">
-                    <button>APPLY COUPON</button>
-
-                </div>
-            </div>
-            <div class="total col-lg-6 col-md-6 col-12">
-                <div>
-                    <h5>CART TOTAL</h5>
-                    <div class="d-flex justify-content-between">
-                        <h6>Total</h6>
-                        <p>$162</p>
-                    </div>
-                    <button class="ml-auto">PROCEED TO CHECKOUT </button>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
 
     <footer class="mt-5 py-5">
