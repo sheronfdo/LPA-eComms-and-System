@@ -1,6 +1,4 @@
-<?php
-
-?>
+<?php require_once 'database/database.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -49,25 +47,25 @@
     <section id="new" class="w-100">
         <div class="row p-0 m-0">
             <div class="one col-lg-4 col-md-12 col-12 p-0">
-                <img class="img-fluid" src="img/new/1.jpg" alt="">
+                <img class="img-fluid" src="img/new/banner6.jpg" alt="">
                 <div class="details">
-                    <h2>Extream Rare Sneakers</h2>
+                    <h2>Gigabyte Gaming Monitor</h2>
                     <a href="shop.php"> <button class="text-uppercase"> Shop Now</button></a>
                 </div>
             </div>
 
             <div class="one col-lg-4 col-md-12 col-12 p-0">
-                <img class="img-fluid" src="img/new/4.jpg" alt="">
+                <img class="img-fluid" src="img/new/banner7.jpg" alt="">
                 <div class="details">
-                    <h2>Awesome Blank Outifits</h2>
+                    <h2>Gigabyte Gaming Monitor</h2>
                     <a href="shop.php"> <button class="text-uppercase"> Shop Now</button></a>
                 </div>
             </div>
 
             <div class="one col-lg-4 col-md-12 col-12 p-0">
-                <img class="img-fluid" src="img/new/3.jpg" alt="">
+                <img class="img-fluid" src="img/new/banner8.jpg" alt="">
                 <div class="details">
-                    <h2>Sportswear Up To 50% Off</h2>
+                    <h2>NVIDIA TRX 3000 SERIES</h2>
                     <a href="shop.php"><button class="text-uppercase"> Shop Now</button></a>
                 </div>
             </div>
@@ -82,43 +80,24 @@
 
         </div>
         <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
-
-                
-                <h5 class="p-name"> Ice Cap</h5>
-                <h4 class="p-price">$20.00</h4>
-                
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                
-                <h5 class="p-name"> Sneaker</h5>
-                <h4 class="p-price">$40.00</h4>
-                
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-
-              
-                <h5 class="p-name"> School Bag</h5>
-                <h4 class="p-price">$10.00</h4>
-                
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                
-                <h5 class="p-name"> Red Sneaker</h5>
-                <h4 class="p-price">$50.00</h4>
-               
-            </div>
+        <?php
+        $db = new dbConnect();
+        $query = "select * from lpa_stock_image ORDER BY lpa_stock_ID DESC limit 0,4";
+        $result = $db->getfromdb($query);
+        if ($rows = mysqli_num_rows($result)) {
+            $i = 0;
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<div class="product text-center col-lg-3 col-md-4 col-12">
+            
+            <img class="img-fluid mb-3" src="admin/uploads/images/' . $row['lpa_stock_image'] . '" alt="">
+            <h5 class="p-name">' . "Asus Tuf Gaming Monitor" . '</h5>
+            </div>';
+            }
+        }
+        ?>
         </div>
+            
+     
     </section>
 
     <section id="banner" class="my-5 py-5">
@@ -137,91 +116,25 @@
 
         </div>
         <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/clothes/1.jpg" alt="">
-
-                
-                <h5 class="p-name"> Ice Cap</h5>
-                <h4 class="p-price">$20.00</h4>
-                
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                
-                <h5 class="p-name"> Sneaker</h5>
-                <h4 class="p-price">$40.00</h4>
-                
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/clothes/3.jpg" alt="">
-
-                
-                <h5 class="p-name"> School Bag</h5>
-                <h4 class="p-price">$10.00</h4>
-                
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/clothes/2.jpg" alt="">
-
-                
-                <h5 class="p-name"> Red Sneaker</h5>
-                <h4 class="p-price">$50.00</h4>
-                
-            </div>
+        <?php
+        $db = new dbConnect();
+        $query = "select * from lpa_stock_image ORDER BY lpa_stock_ID DESC limit 5,9";
+        $result = $db->getfromdb($query);
+        if ($rows = mysqli_num_rows($result)) {
+            $i = 0;
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<div class="product text-center col-lg-3 col-md-4 col-12">
+            
+            <img class="img-fluid mb-3" src="admin/uploads/images/' . $row['lpa_stock_image'] . '" alt="">
+            <h5 class="p-name">' . "Asus Tuf Gaming Monitor" . '</h5>
+            </div>';
+            }
+        }
+        ?>
         </div>
     </section>
 
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Weekly Offers</h3>
-            <hr class="mx-auto">
-            <p>Here you can check out our new products with fair price on LPA eComms.</p>
-
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/clothes/1.jpg" alt="">
-
-               
-                <h5 class="p-name"> Ice Cap</h5>
-                <h4 class="p-price">$20.00</h4>
-                
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                
-                <h5 class="p-name"> Sneaker</h5>
-                <h4 class="p-price">$40.00</h4>
-                
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/clothes/3.jpg" alt="">
-
-               
-                <h5 class="p-name"> School Bag</h5>
-                <h4 class="p-price">$10.00</h4>
-                
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/clothes/2.jpg" alt="">
-
-                
-                <h5 class="p-name"> Red Sneaker</h5>
-                <h4 class="p-price">$50.00</h4>
-                
-            </div>
-        </div>
-    </section>
+   
 
     <footer class="mt-5 py-5">
        <?php   

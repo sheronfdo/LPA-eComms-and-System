@@ -10,12 +10,9 @@
             <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
                 <h5 class="pb-2">Featured</h5>
                 <ul class="text-uppercase list-unstyled">
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Sports Wear</a></li>
+                    
+                    <li><a href="index.php">New Arrivals</a></li>
+                    <li><a href="index.php">Our Features</a></li>
                 </ul>
             </div>
 
@@ -39,7 +36,7 @@
             <div class="footer-one col-lg-3 col-md-6 col-12 mb-2">
                 <h5 class="pb-2">Help</h5>
                 <ul class="text-uppercase list-unstyled">
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
 
 
                 </ul>
