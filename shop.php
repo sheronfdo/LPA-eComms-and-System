@@ -103,7 +103,7 @@
             success: function(data) {
                 jQuery.each(data, function(id, row) {
                     i++;
-                    const prod = ("<div onclick=\"window.location.href='product.php/" + row['lpa_stock_ID'] + "';\" class=\"product text-center col-lg-3 col-md-4 col-12\">" +
+                    const prod = ("<div onclick=\"window.location.href='product.php?id=" + row['lpa_stock_ID'] + "';\" class=\"product text-center col-lg-3 col-md-4 col-12\">" +
                         "<img class=\"img-fluid mb-3\" src=\"admin/uploads/images/" + row['lpa_stock_image'] + "\" alt=\"\">" +
                         "<h5 class=\"p-name\">" + row['lpa_stock_name'] + "</h5>" +
                         "<h4 class=\"p-price\">" + row['lpa_stock_price'] + "</h4>" +
