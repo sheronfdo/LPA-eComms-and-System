@@ -1,3 +1,13 @@
+<?php
+    
+    require_once ('./database/database.php');
+    require_once ('./service/cartservice.php');
+    $db = new dbConnect();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    
+ ?>
 <!doctype html>
 <html lang="en">
 
@@ -53,13 +63,31 @@
 
 <body>
 
+    <?php
+$cart = new cartservice();
+if (isset($_POST["cart"])) {
+
+    $clientId = $_SESSION['clientid'];
+    $stockId = '1';
+    $qty = $_POST["qty"];
+    $size = $_POST["size"];
+
+    $cart-> __construct($clientId, $stockId, $qty, $size);
+    $cart->insert();
+
+}
+
+
+?>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
     <?php 
            include 'common/header.php';
+
         ?> 
     </nav>
-
+<form action='product.php' method='POST'> 
     <section class="container sproduct my-5 pt-5">
         <div class="row mt-5">
             <div class="col-lg-5 col-md-12 col-12 ">
@@ -84,7 +112,7 @@
                 <h6>Home / T-Shirt</h6>
                 <h3 class="py-4">Men's Fashion T Shirt</h3>
                 <h2>$56.00</h2>
-                <select class="my-3">
+                <select class="my-3" name = 'size'>
                     <option >Select Size</option>
                     <option >Small</option>
                     <option >Medium</option>
@@ -93,8 +121,9 @@
                     <option >XXL</option>
                 
                 </select>
-                <input type="number" value="1">
-                <button class="buy-btn">Add To Cart</button>
+</form>
+                <input type="number" value="1" name= 'qty'>
+                <button class="buy-btn" name="cart">Add To Cart</button>
 
                 <h4 class="mt-5 mb-5">Product Details</h4>
                 <span>This is a 100% cotton classic fit product.This is a 100% cotton
@@ -128,7 +157,7 @@
                 </div>
                 <h5 class="p-name"> Ice Cap</h5>
                 <h4 class="p-price">$20.00</h4>
-                <button class="buy-btn">Add To Cart</button>
+                <button class="buy-btn" >Add To Cart</button>
             </div>
 
 

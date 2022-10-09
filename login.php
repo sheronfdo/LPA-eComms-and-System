@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
        
                 
                 $_SESSION['username'] = $row['lpa_client_username'];
-               
+                $_SESSION['clientid'] = $row['lpa_client_ID'];
                 $userName = $row['lpa_client_username'];
                 echo "<script> window.location.href='index.php';</script>";
                 $loginstatus =null;
