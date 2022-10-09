@@ -1,6 +1,6 @@
 <?php 
-    require_once  "../model/client.php";
-    require_once "../database/database.php";
+    require_once  './model/client.php';
+    require_once './database/database.php';
 
     class ClientService extends Client{
 
@@ -11,7 +11,8 @@
         $this->db = new dbconnect();
         } 
         public function insert(){
-            $query = "INSERT INTO `lpa_clients`(`lpa_client_ID `, `lpa_client_firstname`, `lpa_client_lastname`, `lpa_client_address`, `lpa_client_phone`, `lpa_client_status`) VALUES ('" . $this->getClientId() . "','" . $this->getFirstName() . "','" . $this->getLastName() . "','". $this->getAddress() . "','" . $this->getPhone() . "','" . $this->getStatus() ."')";
+            $query = "INSERT INTO `lpa_clients`(`lpa_client_ID`, `lpa_client_firstname`, `lpa_client_lastname`, `lpa_client_address`, `lpa_client_phone`, `lpa_client_email`, `lpa_client_status`, `lpa_client_username`, `lpa_client_password`) VALUES ('" . $this->getClientId() . "','" . $this->getFirstName() . "','" . $this->getLastName() . "','". $this->getAddress() . "','" . $this->getPhone() . "','" . $this->getEmail() ."','" . $this->getStatus() ."','" . $this->getUsername() ."','" . $this->getPassword() ."')";
+           // $query = "INSERT INTO `lpa_clients`(`lpa_client_ID`, `lpa_client_firstname`, `lpa_client_lastname`, `lpa_client_address`, `lpa_client_phone`, `lpa_client_email`, `lpa_client_status`, `lpa_client_username`, `lpa_client_password`) VALUES ('CTM2','fhfg','hftgh','ghfghgf','452452424','rtert','1','fgdfgd','dgdzdfvdfbzdfbz')";
         $this->db->insertIntoDb($query);
         }
 

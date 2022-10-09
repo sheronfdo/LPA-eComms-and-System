@@ -6,7 +6,10 @@ class Client{
     private $client_lastname;
     private $client_address;
     private $client_phone;
+    private $client_email;
     private $client_status;
+    private $client_username;
+    private $client_password;
 
       /**
          * @param $client_id
@@ -15,16 +18,22 @@ class Client{
          * @param $client_address
          * @param $client_phone
          * @param $client_status
+         * @param $client_username;
+         * @param $client_password;
+         * @param $client_email;
          */
 
-         public function __construct($client_id, $client_firstname, $client_lastname, $client_address, $client_phone, $client_status)
+         public function __constructId($client_id, $client_firstname, $client_lastname, $client_address, $client_phone, $client_email, $client_status, $client_username, $client_password)
          {
             $this->client_id = $client_id;
             $this->client_firstname = $client_firstname;
             $this->client_lastname = $client_lastname;
             $this->client_address = $client_address;
             $this->client_phone = $client_phone;
+            $this->client_email = $client_email;
             $this->client_status = $client_status;
+            $this->client_username = $client_username;
+            $this->client_password = $client_password;
          }
          
          /**
@@ -110,6 +119,21 @@ class Client{
         /**
          * @return mixed
          */
+        public function getEmail()
+        {
+            return $this->client_email;
+        }
+
+        /**
+         * @param mixed $client_email
+         */
+        public function setEmail($client_email)
+        {
+            $this->client_email = $client_email;
+        }
+        /**
+         * @return mixed
+         */
         public function getStatus()
         {
             return $this->client_status;
@@ -121,6 +145,37 @@ class Client{
         public function setStatus($client_status)
         {
             $this->client_status = $client_status;
+        }
+         /**
+         * @return mixed
+         */
+        public function getUsername()
+        {
+            return $this->client_username;
+        }
+
+        /**
+         * @param mixed $client_username
+         */
+        public function setUsername($client_username)
+        {
+            $this->client_username = $client_username;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getPassword()
+        {
+            return $this->client_password;
+        }
+
+        /**
+         * @param mixed $client_password
+         */
+        public function setPassword($client_password)
+        {
+            $this->client_password = $client_password;
         }
          
 }
