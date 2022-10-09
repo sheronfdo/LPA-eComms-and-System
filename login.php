@@ -162,7 +162,7 @@ echo $loginstatus;
 
 
                     <p class="mb-0">
-                        <a href="register.html" class="text-center">Create a New Account?</a>
+                        <a href="register.php" class="text-center">Create a New Account?</a>
                     </p>
                 </div>
                 <!-- /.card-body -->

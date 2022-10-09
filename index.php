@@ -29,7 +29,7 @@
             <h1><span>Best Price</span> This Year</h1>
             <p>Shoomatic Offers your very comfortable time<br> on walking exercises.
             </p>
-            <button>Shop Now</button>
+            <a href="shop.php"><button>Shop Now</button></a>
         </div>
 
     </section>
@@ -52,7 +52,7 @@
                 <img class="img-fluid" src="img/new/1.jpg" alt="">
                 <div class="details">
                     <h2>Extream Rare Sneakers</h2>
-                    <button class="text-uppercase"> Shop Now</button>
+                    <a href="shop.php"> <button class="text-uppercase"> Shop Now</button></a>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                 <img class="img-fluid" src="img/new/4.jpg" alt="">
                 <div class="details">
                     <h2>Awesome Blank Outifits</h2>
-                    <button class="text-uppercase"> Shop Now</button>
+                    <a href="shop.php"> <button class="text-uppercase"> Shop Now</button></a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
                 <img class="img-fluid" src="img/new/3.jpg" alt="">
                 <div class="details">
                     <h2>Sportswear Up To 50% Off</h2>
-                    <button class="text-uppercase"> Shop Now</button>
+                    <a href="shop.php"><button class="text-uppercase"> Shop Now</button></a>
                 </div>
             </div>
         </div>
