@@ -1,5 +1,5 @@
 <?php 
-    require_once  "../model/stockImage.php";
+    require_once "../model/stockImage.php";
     require_once "../database/database.php";
     class StockImageService extends StockImage{
 
@@ -19,5 +19,3 @@
         $this->db->insertIntoDb($query);
         }
     }
-
-?>

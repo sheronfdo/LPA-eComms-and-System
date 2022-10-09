@@ -1,6 +1,6 @@
 <div class="container">
     <img src="img/LPA eComms.png" alt="" width="50px">
-    <a href="index.html">
+    <a href="index.php">
         <h3 class="nav">LPA eComms</h3>
     </a>
 
@@ -31,8 +31,6 @@
             <li class="nav-item">
                 <a href="search.php"><i class="fa fa-search icon"></i></a>
                 <a href="cart.php"><i class="fa fa-shopping-basket icon"></i></a>
-
-
             </li>
 
 

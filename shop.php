@@ -54,7 +54,7 @@
 
         <div class="row mx-auto container">
             <div onclick="window.location.href='product.html';" class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/shop/1.jpg" alt="">
+                <img class="img-fluid mb-3" src="admin/uploads/images/6338aaabedeee3.24869534.png" alt="">
 
                 <div class="star">
                     <i class="fa fa-star"></i>
@@ -122,6 +122,7 @@
                 <button class="buy-btn">Add To Cart</button>
             </div>
         </div>
+
         <div class="row mx-auto container">
             <div class="product text-center col-lg-3 col-md-4 col-12">
                 <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
@@ -193,9 +194,6 @@
             </div>
         </div>
 
-
-
-
         <div class="row mx-auto container">
             <div class="product text-center col-lg-3 col-md-4 col-12">
                 <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
@@ -265,8 +263,8 @@
                 <h4 class="p-price">$50.00</h4>
                 <button class="buy-btn">Add To Cart</button>
             </div>
-
-
+        </div>
+        <div class="row mx-auto container">
             <!-- Pagination -->
             <nav aria-label="...">
                 <ul class="pagination">
