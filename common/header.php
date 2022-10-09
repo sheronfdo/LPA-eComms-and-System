@@ -1,6 +1,24 @@
+<?php
+$loginbtn = null;
+$registerbtn = null;
+    if (!isset($_SESSION)) {
+        session_start();
+
+    }
+
+    if(isset($_SESSION['username'])){
+        $loginbtn = ' <a class="nav-link" href="logout.php">Log Out</a>';
+
+    }else{     $loginbtn = ' <a class="nav-link" href="login.php">Login </a>';
+    $registerbtn = '<a class="nav-link" href="register.php">Register</a>';
+
+    }
+
+
+?>
 <div class="container">
     <img src="img/LPA eComms.png" alt="" width="50px">
-    <a href="index.html">
+    <a href="index.php">
         <h3 class="nav">LPA eComms</h3>
     </a>
 
@@ -23,18 +41,19 @@
                 <a class="nav-link" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.php">Login </a>
+               <?php echo $loginbtn;     ?>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="register.php">Register</a>
+            <?php   echo $registerbtn;    ?>
             </li>
             <li class="nav-item">
                 <a href="search.php"><i class="fa fa-search icon"></i></a>
                 <a href="cart.php"><i class="fa fa-shopping-basket icon"></i></a>
-
-
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register.php"><?php if (isset($_SESSION['username'])) {echo $_SESSION['username']; }   ?></a>
             </li>
 
-
+            
     </div>
 </div>
