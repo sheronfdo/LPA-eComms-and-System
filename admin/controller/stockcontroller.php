@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET["getstock"]) and isset($_GET["id"])) {
         $db = new dbconnect();
-        $result = $db->getfromdb("SELECT `lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, `lpa_stock_status` FROM `lpa_stock` WHERE lpa_stock_ID=" . $_GET["id"]);
+        $result = $db->getfromdb("SELECT lpa_stock.`lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, `lpa_stock_status`, lpa_stock_image.lpa_stock_image FROM `lpa_stock` LEFT JOIN lpa_stock_image ON lpa_stock.lpa_stock_ID=lpa_stock_image.lpa_stock_ID WHERE lpa_stock_ID=" . $_GET["id"]);
         $output = array();
         while ($row = $result->fetch_assoc()) {
             $output[$row['lpa_stock_ID']] = array(
@@ -45,7 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 'lpa_stock_desc' => $row['lpa_stock_desc'],
                 'lpa_stock_onhand' => $row['lpa_stock_onhand'],
                 'lpa_stock_price' => $row['lpa_stock_price'],
-                'lpa_stock_status' => $row['lpa_stock_status']
+                'lpa_stock_status' => $row['lpa_stock_status'],
+                'lpa_stock_image' => $row['lpa_stock_image']
             );
         }
         header("Content-Type: application/json");
@@ -53,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } else
         if (isset($_GET["getstock"])) {
             $db = new dbconnect();
-            $result = $db->getfromdb("SELECT `lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, `lpa_stock_status` FROM `lpa_stock`");
+            $result = $db->getfromdb("SELECT lpa_stock.`lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, `lpa_stock_status`, lpa_stock_image.lpa_stock_image FROM `lpa_stock` LEFT JOIN lpa_stock_image ON lpa_stock.lpa_stock_ID=lpa_stock_image.lpa_stock_ID");
             $output = array();
             while ($row = $result->fetch_assoc()) {
                 $output[$row['lpa_stock_ID']] = array(
@@ -62,7 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     'lpa_stock_desc' => $row['lpa_stock_desc'],
                     'lpa_stock_onhand' => $row['lpa_stock_onhand'],
                     'lpa_stock_price' => $row['lpa_stock_price'],
-                    'lpa_stock_status' => $row['lpa_stock_status']
+                    'lpa_stock_status' => $row['lpa_stock_status'],
+                    'lpa_stock_image' => $row['lpa_stock_image']
                 );
             }
             header("Content-Type: application/json");
