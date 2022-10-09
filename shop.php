@@ -60,215 +60,6 @@
         </div>
 
         <div class="product-list" id="product-list">
-            <div class="row mx-auto container">
-                <div onclick="window.location.href='product.html';" class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="admin/uploads/images/u.jpg" alt="">
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h5 class="p-name"> Ice Cap</h5>
-                    <h4 class="p-price">$20.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="admin/uploads/images/6338aaabedeee3.24869534.png" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Sneaker</h5>
-                    <h4 class="p-price">$40.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> School Bag</h5>
-                    <h4 class="p-price">$10.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Red Sneaker</h5>
-                    <h4 class="p-price">$50.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-            </div>
-
-            <div class="row mx-auto container">
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Ice Cap</h5>
-                    <h4 class="p-price">$20.00</h4>
-                    <button class="buy-btn">But Now</button>
-                </div>
-
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Sneaker</h5>
-                    <h4 class="p-price">$40.00</h4>
-                    <button class="buy-btn">But Now</button>
-                </div>
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> School Bag</h5>
-                    <h4 class="p-price">$10.00</h4>
-                    <button class="buy-btn">But Now</button>
-                </div>
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Red Sneaker</h5>
-                    <h4 class="p-price">$50.00</h4>
-                    <button class="buy-btn">But Now</button>
-                </div>
-            </div>
-
-            <div class="row mx-auto container">
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Ice Cap</h5>
-                    <h4 class="p-price">$20.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Sneaker</h5>
-                    <h4 class="p-price">$40.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> School Bag</h5>
-                    <h4 class="p-price">$10.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-
-
-                    </div>
-                    <h5 class="p-name"> Red Sneaker</h5>
-                    <h4 class="p-price">$50.00</h4>
-                    <button class="buy-btn">Add To Cart</button>
-                </div>
-            </div>
         </div>
         <div class="row mx-auto container">
             <!-- Pagination -->
@@ -301,7 +92,7 @@
 
     <script>
         var prodlist = "<div class=\"row mx-auto container\">";
-        var i=0;
+        var i = 0;
         $.ajax({
             type: "GET",
             dataType: "json",
@@ -311,24 +102,23 @@
             },
             success: function(data) {
                 jQuery.each(data, function(id, row) {
-                    ++i;
-                    if(i==4){
-                        i=0;
-                        prodlist = prodlist+ "</div><div class=\"row mx-auto container\">";
-                    }
-                    const prod = ("<div onclick=\"window.location.href='product.php';\" class=\"product text-center col-lg-3 col-md-4 col-12\">" +
-                        "<img class=\"img-fluid mb-3\" src=\"admin/uploads/images/"+row['lpa_stock_image']+"\" alt=\"\">" +
-                        "<h5 class=\"p-name\">"+row['lpa_stock_name']+"</h5>" +
-                        "<h4 class=\"p-price\">"+row['lpa_stock_price']+"</h4>" +
+                    i++;
+                    const prod = ("<div onclick=\"window.location.href='product.php/" + row['lpa_stock_ID'] + "';\" class=\"product text-center col-lg-3 col-md-4 col-12\">" +
+                        "<img class=\"img-fluid mb-3\" src=\"admin/uploads/images/" + row['lpa_stock_image'] + "\" alt=\"\">" +
+                        "<h5 class=\"p-name\">" + row['lpa_stock_name'] + "</h5>" +
+                        "<h4 class=\"p-price\">" + row['lpa_stock_price'] + "</h4>" +
                         "<button class=\"buy-btn\">Add To Cart</button>" +
                         "</div>");
-                    prodlist = prodlist+prod;
-                }); 
-                document.getElementById('product-list').innerHTML = prodlist+"</div>";
+                    prodlist = prodlist + prod;
+                    if (i === 4) {
+                        i = 0;
+                        prodlist = prodlist + "</div><div class=\"row mx-auto container\">";
+                    }
+                });
+                document.getElementById('product-list').innerHTML = prodlist + "</div>";
                 console.log(data);
             }
         });
-       
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
