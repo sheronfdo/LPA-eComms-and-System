@@ -101,7 +101,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form method="POST" action="../controller/stockcontroller.php">
+                                <form method="POST" action="../controller/stockcontroller.php" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="itemID">Item ID</label>
@@ -111,7 +111,6 @@
                                             <label for="itemName">Item Name</label>
                                             <input type="text" class="form-control" id="itemName" name="name" placeholder="Enter Item Name">
                                         </div>
-
                                         <div class="form-group">
                                             <label for="itemDescription">Item Description</label>
                                             <input type="text" class="form-control" id="itemDescription" name="desc" placeholder="Enter Item Description">
@@ -150,11 +149,11 @@
                                             <!-- <label for="customFile">Custom File</label> -->
 
                                             <label class="control-label">Select File</label>
-                                            <input id="input-b5" name="1" type="file">
+                                            <input type="file" name="file">
 
 
                                         </div>
-                                        <input type="submit" class="btn btn-block btn-outline-primary" name="submit" value="submit">
+                                        <button type="submit" class="btn btn-block btn-outline-primary" name="submit" value="submit">Submit</button>
                                         <button type="reset" class="btn btn-block btn-outline-danger">CANCEL</button>
 
                                     </div>
