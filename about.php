@@ -33,7 +33,7 @@
         <div class="row">
             <div class=" col-lg-6 col-md-6 col-12 mb-4">
                 <div>
-                    <img src="img/banner/about.jpg" alt="" width="100%">
+                    <img src="img/banner/home1.jpg" alt="" width="100%">
 
                 </div>
             </div>

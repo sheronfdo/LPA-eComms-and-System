@@ -72,7 +72,7 @@ if (isset($_POST["cart"])) {
     $qty = $_POST["qty"];
     $size = $_POST["size"];
 
-    $cart-> __construct($clientId, $stockId, $qty, $size);
+    $cart-> __constructWithoutId($clientId, $stockId, $qty, $size);
     $cart->insert();
 
 }
@@ -135,84 +135,7 @@ if (isset($_POST["cart"])) {
         </div>
     </section>
 
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Related Products</h3>
-            <hr class="mx-auto">
-            <p>Here you can check out our new products with fair price on LPA eComms.</p>
-
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
-
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-
-
-                </div>
-                <h5 class="p-name"> Ice Cap</h5>
-                <h4 class="p-price">$20.00</h4>
-                <button class="buy-btn" >Add To Cart</button>
-            </div>
-
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-
-
-                </div>
-                <h5 class="p-name"> Sneaker</h5>
-                <h4 class="p-price">$40.00</h4>
-                <button class="buy-btn">Add To Cart</button>
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-
-
-                </div>
-                <h5 class="p-name"> School Bag</h5>
-                <h4 class="p-price">$10.00</h4>
-                <button class="buy-btn">Add To Cart</button>
-            </div>
-
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-
-
-                </div>
-                <h5 class="p-name"> Red Sneaker</h5>
-                <h4 class="p-price">$50.00</h4>
-                <button class="buy-btn">Add To Cart</button>
-            </div>
-        </div>
-    </section>
+    
 
 
     <footer class="mt-5 py-5">
