@@ -3,17 +3,25 @@ class Cart{
     private $lpa_client_id;
     private $lpa_stock_id;
     private $lpa_qty;
-    private $lpa_size;
+    private $cartId;
 
 
 
 
-         public function __constructWithoutId($lpa_client_id, $lpa_stock_id,$lpa_qty,$lpa_size)
+         public function __constructWithoutId($lpa_client_id, $lpa_stock_id,$lpa_qty)
          {
             $this->lpa_client_id = $lpa_client_id;
             $this->lpa_stock_id = $lpa_stock_id;
             $this->lpa_qty = $lpa_qty;
-            $this->lpa_size = $lpa_size;
+
+
+         }
+
+         public function __constructWithtId($cartId)
+         {
+            $this->cartId = $cartId;
+
+
 
          }
          
@@ -51,15 +59,17 @@ class Cart{
             $this->lpa_qty = $lpa_qty;
         }
 
-        public function getSize()
+
+        public function getCartId()
         {
-            return $this->lpa_size;
+            return $this->cartId;
         }
 
 
-        public function setSize($lpa_size)
+        public function setCartId($cartId)
         {
-            $this->lpa_size = $lpa_size;
+            $this->cartId = $cartId;
         }
+
 
     }
