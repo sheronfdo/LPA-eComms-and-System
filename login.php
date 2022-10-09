@@ -1,3 +1,9 @@
+<?php
+    
+    require_once ('./database/database.php');
+    $db = new dbConnect();
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +32,74 @@
 </head>
 
 <body>
+<?php
+$Wrongpassword = null;
+$userName = null;
+$password = null;
+$userid = null;
+$loginstatus = null;
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    if(isset($_POST['login'])){
+        
+        $userName = stripslashes($_POST['username']);
+        $password = stripslashes($_POST['password']);
+        $password = md5($password);
+
+        $query='SELECT * FROM lpa_clients WHERE lpa_client_username=? AND lpa_client_password=?';
+        
+        $connection = $db->getConnection();
+        $stmt = mysqli_stmt_init($connection);
+
+
+        if(!mysqli_stmt_prepare($stmt, $query)){
+            echo '<script type="text/javascript">
+            swal("", " Sql statement faild", "warning");
+            </script>';
+
+        }else{
+           
+            mysqli_stmt_bind_param($stmt,"ss", $userName, $password);
+            
+
+        }
+
+        mysqli_stmt_execute($stmt);
+        
+
+        $result = mysqli_stmt_get_result($stmt);
+        
+        
+        $resultCheck = mysqli_num_rows($result);
+
+
+        if($resultCheck > 0 ){
+
+            while($row = mysqli_fetch_assoc($result)){
+       
+                
+                $_SESSION['username'] = $row['lpa_client_username'];
+               
+                $userName = $row['lpa_client_username'];
+                echo "<script> window.location.href='index.php';</script>";
+                $loginstatus =null;
+                exit();
+            }
+
+            
+            
+
+            
+        }elseif($resultCheck == 0 ){
+            
+            $loginstatus ='wrong password or username';
+           
+        }
+
+    }
+}
+    ?>
     <section id="login-new">
 
         <div class=" col-md-3 mt-5  container">
@@ -38,9 +112,9 @@
                 <div class="card-body">
                     <p class="login-box-msg">Welcome back. Please enter your details.</p>
 
-                    <form action="index.html" method="post">
+                    <form action="login.php" method="post">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" placeholder="Username" name='username'>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -48,25 +122,34 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name='password'>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
                                 </div>
                             </div>
                         </div>
+                       <div>
+
+<?php
+echo $loginstatus;
+?>
+</div>
                         <div class="row">
                             <div class="col-8">
                                 <div class="icheck-primary">
+                                 
                                     <input type="checkbox" id="remember">
                                     <label for="remember">
+
+                                    
                 Remember Me
               </label>
                                 </div>
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                                <button type="submit" class="btn btn-primary btn-block" name='login'>Log In</button>
                             </div>
                             <!-- /.col -->
                         </div>
@@ -93,6 +176,7 @@
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
+    
 </body>
 
 </html>
