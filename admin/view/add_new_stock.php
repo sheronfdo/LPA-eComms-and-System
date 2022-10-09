@@ -101,28 +101,28 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="../controller/stockcontroller.php">
+                                <form method="POST" action="../controller/stockcontroller.php">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="itemID">Item ID</label>
-                                            <input type="text" class="form-control" id="id" placeholder="Enter Item ID">
+                                            <input type="text" class="form-control" id="itemId" name="id" placeholder="Enter Item ID">
                                         </div>
                                         <div class="form-group">
                                             <label for="itemName">Item Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter Item Name">
+                                            <input type="text" class="form-control" id="itemName" name="name" placeholder="Enter Item Name">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="itemDescription">Item Description</label>
-                                            <input type="text" class="form-control" id="desc" placeholder="Enter Item Description">
+                                            <input type="text" class="form-control" id="itemDescription" name="desc" placeholder="Enter Item Description">
                                         </div>
                                         <div class="form-group">
                                             <label for="itemOnHand">Item On-Hand</label>
-                                            <input type="number" class="form-control" id="onhand" placeholder="Enter Item On-Hand">
+                                            <input type="number" class="form-control" id="itemOnHand" name="onhand" placeholder="Enter Item On-Hand">
                                         </div>
                                         <div class="form-group">
                                             <label for="itemPrice">Item Price</label>
-                                            <input type="number" class="form-control" id="price" placeholder="Enter Item Price">
+                                            <input type="number" class="form-control" id="itemPrice" name="price" placeholder="Enter Item Price">
                                         </div>
                                         <!-- Radio Buttons -->
                                         <div class="form-group">
@@ -130,13 +130,13 @@
                                                 <label for="itemPrice">Item Status</label>
 
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="itemStatus" id="active" value="1" checked>
+                                                <input class="form-check-input" type="radio" name="status" id="active" value="1" checked>
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     Active
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="itemStatus" id="inactive" value="0">
+                                                <input class="form-check-input" type="radio" name="status" id="inactive" value="0">
                                                 <label class="form-check-label" for="exampleRadios2">
                                                     Inactive
                                                 </label>
@@ -149,23 +149,12 @@
 
                                             <!-- <label for="customFile">Custom File</label> -->
 
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                            </div>
+                                            <label class="control-label">Select File</label>
+                                            <input id="input-b5" name="1" type="file">
+
 
                                         </div>
-
-                                        <!-- /.card-body -->
-
-
-
-
-                                        <div class="col-md-12"></div>
-
-
-                                        <button type="submit" class="btn btn-block btn-outline-primary">SAVE</button>
-
+                                        <input type="submit" class="btn btn-block btn-outline-primary" name="submit" value="submit">
                                         <button type="reset" class="btn btn-block btn-outline-danger">CANCEL</button>
 
                                     </div>
@@ -245,7 +234,14 @@
             bsCustomFileInput.init();
         });
     </script>
-
+    <script>
+        $(document).ready(function() {
+            $("#input-b5").fileinput({
+                showCaption: false,
+                dropZoneEnabled: false
+            });
+        });
+    </script>
     <?php
     include 'footer.php';
 
