@@ -2,14 +2,13 @@
 class Cart{
     private $lpa_client_id;
     private $lpa_stock_id;
+    private $lpa_qty;
+    private $lpa_size;
 
 
-      /**
-         * @param $lpa_client_id
-         * @param $lpa_stock_id
-         */
 
-         public function __construct($lpa_client_id, $lpa_stock_id,$lpa_qty,$lpa_size)
+
+         public function __constructWithoutId($lpa_client_id, $lpa_stock_id,$lpa_qty,$lpa_size)
          {
             $this->lpa_client_id = $lpa_client_id;
             $this->lpa_stock_id = $lpa_stock_id;
@@ -18,17 +17,13 @@ class Cart{
 
          }
          
-         /**
-         * @return mixed $client_id
-         */
+     
         public function getClientId()
         {
             return $this->lpa_client_id;
         }
 
-        /**
-         * @param mixed $client_id
-         */
+
         public function setClientId($lpa_client_id)
         {
             $this->lpa_client_id = $lpa_client_id;
@@ -39,9 +34,6 @@ class Cart{
             return $this->lpa_stock_id;
         }
 
-        /**
-         * @param mixed $StockId
-         */
         public function setStockId($lpa_stock_id)
         {
             $this->lpa_stock_id = $lpa_stock_id;
@@ -53,9 +45,7 @@ class Cart{
             return $this->lpa_qty;
         }
 
-        /**
-         * @param mixed $StockId
-         */
+
         public function setQty($lpa_qty)
         {
             $this->lpa_qty = $lpa_qty;
@@ -66,9 +56,7 @@ class Cart{
             return $this->lpa_size;
         }
 
-        /**
-         * @param mixed $StockId
-         */
+
         public function setSize($lpa_size)
         {
             $this->lpa_size = $lpa_size;
