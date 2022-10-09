@@ -2,7 +2,10 @@
     
     require_once ('./database/database.php');
     $db = new dbConnect();
-
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    
  ?>
 <!DOCTYPE html>
 <html lang="en">
