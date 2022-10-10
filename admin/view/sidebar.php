@@ -67,7 +67,29 @@
                                 </p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-users" aria-hidden="true"></i>
+                                        <p>
+                                            Administrator Manage
+                                        <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+                                        <li class="nav-item">
+                                            <a href="add_admin.php" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Administrator</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="manage_admin.php" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Manage Administrator</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
 
 
                     </ul>
