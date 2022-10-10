@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+?>
 
 <head>
   <meta charset="utf-8">
@@ -66,8 +71,6 @@
 
     </nav>
     <!-- /.navbar -->
-
-
     <!-- Main Sidebar Container -->
     <?php
     include 'sidebar.php';
@@ -227,18 +230,14 @@
   <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
   <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../../dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js"></script>
-  <!-- Page specific script -->
+
   <script>
     $(function() {
       $("#example1").DataTable({
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "buttons": ["copy", "csv", "excel", "pdf", "print"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
       $('#example2').DataTable({
         "paging": true,

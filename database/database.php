@@ -1,5 +1,10 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+
 final class dbconnect
 {
     public $servername = "129.146.173.43";
@@ -45,7 +50,4 @@ final class dbconnect
             echo "ERROR: Could not able to execute $query. " . mysqli_error($this->conn);
         }
     }
-
 }
-
-?>

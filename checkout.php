@@ -15,6 +15,12 @@ if (!isset($_SESSION)) {
 ?>
 <!doctype html>
 <html lang="en">
+<?PHP
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+?>
 
 <head>
     <meta charset="utf-8">
@@ -102,9 +108,9 @@ if(isset($_POST['chechout'])){
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-    <?php 
-           include 'common/header.php';
-        ?> 
+        <?php
+        include 'common/header.php';
+        ?>
     </nav>
 
 
@@ -150,6 +156,7 @@ if(isset($_POST['chechout'])){
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="paymentMethod">Payment Method</label>
+<<<<<<< HEAD
                             <select id="paymentMethod" class="form-control" name="paymentMethod">
                                   <option selected>Select Payment Method</option>
                                   <option>PayPal</option>
@@ -157,6 +164,15 @@ if(isset($_POST['chechout'])){
                                   <option>MasterCard</option>
                                   <option>Direct Deposit</option>
                                 </select>
+=======
+                            <select id="paymentMethod" class="form-control">
+                                <option selected>Select Payment Method</option>
+                                <option>PayPal</option>
+                                <option>VISA</option>
+                                <option>MasterCard</option>
+                                <option>Direct Deposit</option>
+                            </select>
+>>>>>>> 23fab82839209d3c38b96a524a462368bc37beb6
                         </div>
 
                     </div>
@@ -165,8 +181,8 @@ if(isset($_POST['chechout'])){
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
                             <label class="form-check-label" for="gridCheck">
-                                  Check me out
-                                </label>
+                                Check me out
+                            </label>
                         </div>
                     </div>
 
@@ -226,9 +242,9 @@ if(isset($_POST['chechout'])){
     </form>
 
     <footer class="mt-5 py-5">
-    <?php   
-         include 'common/footer.php';
-       ?>
+        <?php
+        include 'common/footer.php';
+        ?>
     </footer>
 
 

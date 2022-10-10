@@ -1,13 +1,18 @@
-<?php 
-    require_once  './model/cart.php';
-    require_once './database/database.php';
+<?php
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+require_once  './model/cart.php';
+require_once './database/database.php';
 
-    class CartService extends cart{
+class CartService extends Cart
+{
 
-        private $db;
+    private $db;
 
-        public function __construct()
-        {
+    public function __construct()
+    {
         $this->db = new dbconnect();
         } 
         public function insert(){
@@ -22,3 +27,4 @@
         }
 
     }
+    

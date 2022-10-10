@@ -1,0 +1,8 @@
+[10-Oct-2022 08:49:10 UTC] PHP Warning:  require(kahgsdkjhaskd.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:49:10 UTC] PHP Fatal error:  require(): Failed opening required 'kahgsdkjhaskd.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:49:12 UTC] PHP Warning:  require(kahgsdkjhaskd.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:49:12 UTC] PHP Fatal error:  require(): Failed opening required 'kahgsdkjhaskd.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:49:22 UTC] PHP Warning:  require(kahgsdkjhaskd.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:49:22 UTC] PHP Fatal error:  require(): Failed opening required 'kahgsdkjhaskd.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:49:52 UTC] PHP Notice:  Undefined variable: hii in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
+[10-Oct-2022 08:50:41 UTC] PHP Notice:  Undefined index: DOCUMENT_ ROOT in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7

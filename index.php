@@ -1,6 +1,12 @@
 <?php require_once 'database/database.php'; ?>
 <!doctype html>
 <html lang="en">
+<?php
+
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL); ?>
 
 <head>
     <meta charset="utf-8">
@@ -16,9 +22,9 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-        <?php 
-           include 'common/header.php';
-        ?> 
+        <?php
+        include 'common/header.php';
+        ?>
     </nav>
 
     <section id="home">
@@ -80,24 +86,24 @@
 
         </div>
         <div class="row mx-auto container-fluid">
-        <?php
-        $db = new dbConnect();
-        $query = "select * from lpa_stock_image ORDER BY lpa_stock_ID DESC limit 0,4";
-        $result = $db->getfromdb($query);
-        if ($rows = mysqli_num_rows($result)) {
-            $i = 0;
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<div class="product text-center col-lg-3 col-md-4 col-12">
+            <?php
+            $db = new dbConnect();
+            $query = "select * from lpa_stock_image ORDER BY lpa_stock_ID DESC limit 0,4";
+            $result = $db->getfromdb($query);
+            if ($rows = mysqli_num_rows($result)) {
+                $i = 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<div class="product text-center col-lg-3 col-md-4 col-12">
             
             <img class="img-fluid mb-3" src="admin/uploads/images/' . $row['lpa_stock_image'] . '" alt="">
             <h5 class="p-name">' . "Asus Tuf Gaming Monitor" . '</h5>
             </div>';
+                }
             }
-        }
-        ?>
+            ?>
         </div>
-            
-     
+
+
     </section>
 
     <section id="banner" class="my-5 py-5">
@@ -116,30 +122,30 @@
 
         </div>
         <div class="row mx-auto container-fluid">
-        <?php
-        $db = new dbConnect();
-        $query = "select * from lpa_stock_image ORDER BY lpa_stock_ID DESC limit 5,9";
-        $result = $db->getfromdb($query);
-        if ($rows = mysqli_num_rows($result)) {
-            $i = 0;
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<div class="product text-center col-lg-3 col-md-4 col-12">
+            <?php
+            $db = new dbConnect();
+            $query = "select * from lpa_stock_image ORDER BY lpa_stock_ID DESC limit 5,9";
+            $result = $db->getfromdb($query);
+            if ($rows = mysqli_num_rows($result)) {
+                $i = 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<div class="product text-center col-lg-3 col-md-4 col-12">
             
             <img class="img-fluid mb-3" src="admin/uploads/images/' . $row['lpa_stock_image'] . '" alt="">
             <h5 class="p-name">' . "Asus Tuf Gaming Monitor" . '</h5>
             </div>';
+                }
             }
-        }
-        ?>
+            ?>
         </div>
     </section>
 
-   
+
 
     <footer class="mt-5 py-5">
-       <?php   
-         include 'common/footer.php';
-       ?>
+        <?php
+        include 'common/footer.php';
+        ?>
     </footer>
 
 
@@ -149,4 +155,3 @@
 </body>
 
 </html>
-
