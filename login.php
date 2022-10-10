@@ -1,12 +1,16 @@
 <?php
-    
-    require_once ('./database/database.php');
-    $db = new dbConnect();
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    
- ?>
+
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+require_once('./database/database.php');
+$db = new dbConnect();
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,73 +39,63 @@
 </head>
 
 <body>
-<?php
-$Wrongpassword = null;
-$userName = null;
-$password = null;
-$userid = null;
-$loginstatus = null;
+    <?php
+    $Wrongpassword = null;
+    $userName = null;
+    $password = null;
+    $userid = null;
+    $loginstatus = null;
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    if(isset($_POST['login'])){
-        
-        $userName = stripslashes($_POST['username']);
-        $password = stripslashes($_POST['password']);
-        $password = md5($password);
+        if (isset($_POST['login'])) {
 
-        $query='SELECT * FROM lpa_clients WHERE lpa_client_username=? AND lpa_client_password=?';
-        
-        $connection = $db->getConnection();
-        $stmt = mysqli_stmt_init($connection);
+            $userName = stripslashes($_POST['username']);
+            $password = stripslashes($_POST['password']);
+            $password = md5($password);
+
+            $query = 'SELECT * FROM lpa_clients WHERE lpa_client_username=? AND lpa_client_password=?';
+
+            $connection = $db->getConnection();
+            $stmt = mysqli_stmt_init($connection);
 
 
-        if(!mysqli_stmt_prepare($stmt, $query)){
-            echo '<script type="text/javascript">
+            if (!mysqli_stmt_prepare($stmt, $query)) {
+                echo '<script type="text/javascript">
             swal("", " Sql statement faild", "warning");
             </script>';
+            } else {
 
-        }else{
-           
-            mysqli_stmt_bind_param($stmt,"ss", $userName, $password);
-            
-
-        }
-
-        mysqli_stmt_execute($stmt);
-        
-
-        $result = mysqli_stmt_get_result($stmt);
-        
-        
-        $resultCheck = mysqli_num_rows($result);
-
-
-        if($resultCheck > 0 ){
-
-            while($row = mysqli_fetch_assoc($result)){
-       
-                
-                $_SESSION['username'] = $row['lpa_client_username'];
-                $_SESSION['clientid'] = $row['lpa_client_ID'];
-                $userName = $row['lpa_client_username'];
-                echo "<script> window.location.href='index.php';</script>";
-                $loginstatus =null;
-                exit();
+                mysqli_stmt_bind_param($stmt, "ss", $userName, $password);
             }
 
-            
-            
+            mysqli_stmt_execute($stmt);
 
-            
-        }elseif($resultCheck == 0 ){
-            
-            $loginstatus ='wrong password or username';
-           
+
+            $result = mysqli_stmt_get_result($stmt);
+
+
+            $resultCheck = mysqli_num_rows($result);
+
+
+            if ($resultCheck > 0) {
+
+                while ($row = mysqli_fetch_assoc($result)) {
+
+
+                    $_SESSION['username'] = $row['lpa_client_username'];
+                    $_SESSION['clientid'] = $row['lpa_client_ID'];
+                    $userName = $row['lpa_client_username'];
+                    echo "<script> window.location.href='index.php';</script>";
+                    $loginstatus = null;
+                    exit();
+                }
+            } elseif ($resultCheck == 0) {
+
+                $loginstatus = 'wrong password or username';
+            }
         }
-
     }
-}
     ?>
     <section id="login-new">
 
@@ -132,22 +126,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 </div>
                             </div>
                         </div>
-                       <div>
+                        <div>
 
-<?php
-echo $loginstatus;
-?>
-</div>
+                            <?php
+                            echo $loginstatus;
+                            ?>
+                        </div>
                         <div class="row">
                             <div class="col-8">
                                 <div class="icheck-primary">
-                                 
+
                                     <input type="checkbox" id="remember">
                                     <label for="remember">
 
-                                    
-                Remember Me
-              </label>
+
+                                        Remember Me
+                                    </label>
                                 </div>
                             </div>
                             <!-- /.col -->
@@ -179,7 +173,7 @@ echo $loginstatus;
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
-    
+
 </body>
 
 </html>

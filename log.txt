@@ -1,0 +1,1 @@
+[10-Oct-2022 08:52:22 UTC] PHP Notice:  Undefined index: DOCUMENT_R OOT in C:\Apache24\htdocs\LPA\admin\view\root.php on line 7
