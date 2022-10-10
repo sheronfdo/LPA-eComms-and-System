@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LPA eComms | Add New Stock</title>
+    <title>LPA eComms | Edit Stock Details</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,7 +29,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper"></div>
+    <div class="wrapper">
 
 
 
@@ -69,13 +69,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add New Stock</h1>
+                            <h1 class="m-0">Edit Stock Details</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Add New Stock</li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
                         <!-- /.col -->
@@ -97,11 +97,11 @@
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">New Stock</h3>
+                                    <h3 class="card-title">Edit Stock Details</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form method="POST" action="../controller/stockcontroller.php" enctype="multipart/form-data">
+                                <form method="POST" action="../controller/stockcontroller.php">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="itemID">Item ID</label>
@@ -111,6 +111,7 @@
                                             <label for="itemName">Item Name</label>
                                             <input type="text" class="form-control" id="itemName" name="name" placeholder="Enter Item Name">
                                         </div>
+
                                         <div class="form-group">
                                             <label for="itemDescription">Item Description</label>
                                             <input type="text" class="form-control" id="itemDescription" name="desc" placeholder="Enter Item Description">
@@ -150,7 +151,7 @@
 
                                           
                                         </div>
-                                        <button type="submit" class="btn btn-block btn-outline-primary" name="submit" value="submit">Submit</button>
+                                        <input type="submit" class="btn btn-block btn-outline-primary" name="submit" value="submit">
                                         <button type="reset" class="btn btn-block btn-outline-danger">CANCEL</button>
 
                                     </div>
@@ -220,8 +221,6 @@
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- bs-custom-file-input -->
     <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
-
     <script>
         $(function() {
             bsCustomFileInput.init();

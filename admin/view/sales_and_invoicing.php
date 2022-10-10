@@ -35,6 +35,12 @@
         <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
       
+    
+        <style>
+          #total{
+            color: red;
+          }
+        </style>
     </head>
 
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -95,9 +101,14 @@
             <section class="content col-12">
 
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title"><h1 class="m-0">Sales and Invoicing</h1></h3>
+              
+                <div class="card-header">
+                <h3 class="card-title"><h1 class="m-0">Sales and Invoicing</h1>
+                </h3>
+                
               </div>
+             
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -137,6 +148,17 @@
 
 
                   </section>
+
+                  <section class="container" >
+                  <div class="row container">
+                    <div>
+                      <h3 class="mx-2" >Total :</h3>
+                    </div>
+                    <div>
+                      <h3> $265050</h3>
+                    </div>
+                  </div>
+                </section>
                 
                     
                     </div>
@@ -147,6 +169,8 @@
                     <!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header -->
+
+            
 
         </div>
         <!-- ./wrapper -->
@@ -217,16 +241,12 @@
         <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../dist/js/demo.js"></script>
-        <!-- Page specific script -->
+
         <script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
