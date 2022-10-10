@@ -20,21 +20,22 @@ class Cart
         $this->lpa_qty = $lpa_qty;
     }
 
-    public function __constructWithtId($cartId)
-    {
-        $this->cartId = $cartId;
-    }
 
+   
 
-    public function getClientId()
-    {
-        return $this->lpa_client_id;
-    }
-
+         public function __constructWithtId($cartId,$lpa_client_id)
+         {
+            $this->cartId = $cartId;
+            $this->lpa_client_id = $lpa_client_id;
+         }
 
     public function setClientId($lpa_client_id)
     {
         $this->lpa_client_id = $lpa_client_id;
+    }
+    public function getClientId()
+    {
+        return $this->lpa_client_id;
     }
 
     public function getStockId()

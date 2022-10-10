@@ -97,14 +97,15 @@ $db = new dbConnect();
 
                     <tbody>
 
-                        <?php
-                        $itemname = null;
-                        $price = null;
-                        $subtot = null;
-                        $image1 = null;
-                        $query = "SELECT  * From lpa_cart WHERE status='1'";
-                        $result = $db->getfromdb($query);
-                        $resultCheck = mysqli_num_rows($result);
+                <?php
+        $itemname = null;
+        $price = null;
+        $subtot = null;
+        $image1 = null;
+        $client = $_SESSION['clientid'];
+$query = "SELECT  * From lpa_cart WHERE status='1' AND lpa_client_id='$client'";
+$result = $db->getfromdb($query);
+$resultCheck = mysqli_num_rows($result);
 
                         if ($resultCheck > 0) {
 
@@ -160,8 +161,10 @@ $db = new dbConnect();
             <h5>' . $subtot . '</h5>
         </td>
         </form>   
-        <td><button class="fa fa-trash" value= ' . $stockid . ' name= "remove"></button></i></i></a></td>
-        <td><button class="ml-auto">PROCEED TO CHECKOUT </button></td>
+        <td><button class="fa fa-trash" value= '.$stockid.' name= "remove"></button></i></i></a></td>
+        <form action= "checkout.php" method= "POST">
+        <td><button class="ml-auto" name ="chechout" value='.$stockid.'>PROCEED TO CHECKOUT </button></td>
+        </form>
     </tr>
 ';
                             }
