@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+?>
 
 <head>
     <meta charset="utf-8">
@@ -146,10 +152,12 @@
 
                                         <div class="form-group">
                                             <label for="itemImage">Item Image</label>
-                                            <div> <!-- <label for="customFile">Custom File</label> -->
-                                            <input id="input-b5" name="1" type="file"></div>
+                                            <div>
+                                                <!-- <label for="customFile">Custom File</label> -->
+                                                <input id="input-b5" name="1" type="file">
+                                            </div>
 
-                                          
+
                                         </div>
                                         <input type="submit" class="btn btn-block btn-outline-primary" name="submit" value="submit">
                                         <button type="reset" class="btn btn-block btn-outline-danger">CANCEL</button>

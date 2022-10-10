@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="en">
+<?PHP
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
+?>
 
 <head>
     <meta charset="utf-8">
@@ -31,9 +37,9 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-    <?php 
-           include 'common/header.php';
-        ?> 
+        <?php
+        include 'common/header.php';
+        ?>
     </nav>
 
 
@@ -79,12 +85,12 @@
                         <div class="form-group col-md-6">
                             <label for="paymentMethod">Payment Method</label>
                             <select id="paymentMethod" class="form-control">
-                                  <option selected>Select Payment Method</option>
-                                  <option>PayPal</option>
-                                  <option>VISA</option>
-                                  <option>MasterCard</option>
-                                  <option>Direct Deposit</option>
-                                </select>
+                                <option selected>Select Payment Method</option>
+                                <option>PayPal</option>
+                                <option>VISA</option>
+                                <option>MasterCard</option>
+                                <option>Direct Deposit</option>
+                            </select>
                         </div>
 
                     </div>
@@ -93,8 +99,8 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
                             <label class="form-check-label" for="gridCheck">
-                                  Check me out
-                                </label>
+                                Check me out
+                            </label>
                         </div>
                     </div>
 
@@ -130,9 +136,9 @@
 
 
     <footer class="mt-5 py-5">
-    <?php   
-         include 'common/footer.php';
-       ?>
+        <?php
+        include 'common/footer.php';
+        ?>
     </footer>
 
 

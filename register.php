@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
 require_once('service/clientservice.php');
 
 $errors1 = array();
@@ -19,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = mysqli_fetch_array($result);
         $lastid = $row['lpa_client_ID'];
 
-        if($lastid == " "){
-              $clientId = "CTM1";
-        }else{
-           $clientId = substr($lastid,3);
-           $clientId = intval($clientId);
-           $clientId = "CTM" . ($clientId + 1);
+        if ($lastid == " ") {
+            $clientId = "CTM1";
+        } else {
+            $clientId = substr($lastid, 3);
+            $clientId = intval($clientId);
+            $clientId = "CTM" . ($clientId + 1);
         }
 
 
@@ -38,44 +42,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $repassword = $_POST['repass'];
         $status = "1";
 
-       
-        if(empty($firstname)){
+
+        if (empty($firstname)) {
             $errors1[] = 'Firstname is Required';
         }
-        if(empty($lastname)){
+        if (empty($lastname)) {
             $errors2[] = 'Lastname is Required';
-        }if(empty($address)){
+        }
+        if (empty($address)) {
             $errors3[] = 'Address is Required';
         }
-        if(empty($phone)){
+        if (empty($phone)) {
             $errors4[] = 'Phone Number is Required';
         }
-        if(empty($email)){
+        if (empty($email)) {
             $errors5[] = 'Email is Required';
         }
-        if(empty($username)){
+        if (empty($username)) {
             $errors6[] = 'Username is Required';
-        }if(empty($password)){
+        }
+        if (empty($password)) {
             $errors7[] = 'Password is Required';
         }
-        if(empty($repassword)){
+        if (empty($repassword)) {
             $errors8[] = 'Re password is Required';
         }
         if (!empty($firstname) && !empty($lastname) && !empty($address) && !empty($phone) && !empty($email) && !empty($username) && !empty($password) && !empty($repassword)) {
 
-            if($password == $repassword){
+            if ($password == $repassword) {
                 $md5Password = md5($password);
                 $clientService = new ClientService();
-              //  echo $clientId . "<br>". $firstname. "<br>". $lastname. "<br>". $address. "<br>". $phone. "<br>". $email. "<br>". $status. "<br>". $username. "<br>". $md5Password;
+                //  echo $clientId . "<br>". $firstname. "<br>". $lastname. "<br>". $address. "<br>". $phone. "<br>". $email. "<br>". $status. "<br>". $username. "<br>". $md5Password;
                 $clientService->__constructId($clientId, $firstname, $lastname, $address, $phone, $email, $status, $username, $md5Password);
                 $clientService->insert();
                 echo '<script> alert("Registered Successfully"); </script>';
                 echo "<script> window.location.href='login.php';</script>";
-            }else{
+            } else {
                 $errors9[] = 'Password Not Match';
             }
-
-          
         }
     }
 }
@@ -101,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="style.css">
 
     <style>
-         ::-webkit-scrollbar {
+        ::-webkit-scrollbar {
             display: none;
         }
     </style>
@@ -126,18 +130,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div class="input-group col-md-6 mb-3">
                                 <input type="text" name="fname" class="form-control" placeholder=" <?php
-                            if (!empty($errors1)) {
-                               
-                                foreach ($errors1 as $error1) {
-                                    echo '- ' . $error1;
-                                }
-                              
-                            }else{
-                                echo "First Name";
-                            }
+                                                                                                    if (!empty($errors1)) {
 
-                            ?>">
-                               
+                                                                                                        foreach ($errors1 as $error1) {
+                                                                                                            echo '- ' . $error1;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo "First Name";
+                                                                                                    }
+
+                                                                                                    ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -146,17 +149,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="input-group col-md-6 mb-3">
                                 <input type="text" name="lname" class="form-control" placeholder=" <?php
-                            if (!empty($errors2)) {
-                              
-                                foreach ($errors2 as $error2) {
-                                    echo '- ' . $error2;
-                                }
-                                
-                            }else{
-                                echo "Last Name";
-                            }
-                            ?>">
-                               
+                                                                                                    if (!empty($errors2)) {
+
+                                                                                                        foreach ($errors2 as $error2) {
+                                                                                                            echo '- ' . $error2;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo "Last Name";
+                                                                                                    }
+                                                                                                    ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -169,16 +171,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div class="input-group col-md-12 mb-3">
                                 <input type="text" name="address" class="form-control" placeholder="<?php
-                            if (!empty($errors3)) {                               
-                                foreach ($errors3 as $error3) {
-                                    echo '- ' . $error3;
-                                }
-                               
-                            }else{
-                                echo "Address";
-                            }
-                            ?>">
-                                
+                                                                                                    if (!empty($errors3)) {
+                                                                                                        foreach ($errors3 as $error3) {
+                                                                                                            echo '- ' . $error3;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo "Address";
+                                                                                                    }
+                                                                                                    ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-home"></span>
@@ -193,17 +194,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div class="input-group col-md-6 mb-3">
                                 <input type="tel" name="pnumber" class="form-control" placeholder="<?php
-                            if (!empty($errors4)) {
-                              
-                                foreach ($errors4 as $error4) {
-                                    echo '- ' . $error4;
-                                }
-                               
-                            }else{
-                                echo "Phone Number";
-                            }
-                            ?>">
-                                
+                                                                                                    if (!empty($errors4)) {
+
+                                                                                                        foreach ($errors4 as $error4) {
+                                                                                                            echo '- ' . $error4;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo "Phone Number";
+                                                                                                    }
+                                                                                                    ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-phone"></span>
@@ -212,17 +212,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="input-group col-md-6 mb-3">
                                 <input type="email" name="email" class="form-control" placeholder=" <?php
-                            if (!empty($errors5)) {
-                                
-                                foreach ($errors5 as $error5) {
-                                    echo '- ' . $error5;
-                                }
-                              
-                            }else{
-                                echo "Email";
-                            }
-                            ?>">
-                               
+                                                                                                    if (!empty($errors5)) {
+
+                                                                                                        foreach ($errors5 as $error5) {
+                                                                                                            echo '- ' . $error5;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo "Email";
+                                                                                                    }
+                                                                                                    ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-envelope"></span>
@@ -236,17 +235,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div class="input-group col-md-12 mb-3">
                                 <input type="tel" name="uname" class="form-control" placeholder="<?php
-                            if (!empty($errors6)) {
-                               
-                                foreach ($errors6 as $error6) {
-                                    echo '- ' . $error6;
-                                }
-                                
-                            }else{
-                                echo "Username";
-                            }
-                            ?>">
-                                
+                                                                                                    if (!empty($errors6)) {
+
+                                                                                                        foreach ($errors6 as $error6) {
+                                                                                                            echo '- ' . $error6;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo "Username";
+                                                                                                    }
+                                                                                                    ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -261,17 +259,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div class="input-group col-md-6 mb-3">
                                 <input type="password" name="pass" class="form-control" placeholder=" <?php
-                            if (!empty($errors7)) {
-                                echo '<div class="errors">';
-                                foreach ($errors7 as $error7) {
-                                    echo '- ' . $error7;
-                                }
-                                echo '</div>';
-                            }else{
-                                echo "Password";
-                            }
-                            ?>">
-                               
+                                                                                                        if (!empty($errors7)) {
+                                                                                                            echo '<div class="errors">';
+                                                                                                            foreach ($errors7 as $error7) {
+                                                                                                                echo '- ' . $error7;
+                                                                                                            }
+                                                                                                            echo '</div>';
+                                                                                                        } else {
+                                                                                                            echo "Password";
+                                                                                                        }
+                                                                                                        ?>">
+
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-lock"></span>
@@ -281,25 +279,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div class="input-group col-md-6 mb-3">
                                 <input type="password" name="repass" class="form-control" placeholder="<?php
-                            if (!empty($errors8)) {
-                                
-                                foreach ($errors8 as $error8) {
-                                    echo '- ' . $error8;
-                                }
-                                
-                            }else{
-                                echo "Retype Password";
-                            }
-                            ?>">
-                            <?php
+                                                                                                        if (!empty($errors8)) {
+
+                                                                                                            foreach ($errors8 as $error8) {
+                                                                                                                echo '- ' . $error8;
+                                                                                                            }
+                                                                                                        } else {
+                                                                                                            echo "Retype Password";
+                                                                                                        }
+                                                                                                        ?>">
+                                <?php
                                 if (!empty($errors9)) {
-                               
-                                foreach ($errors9 as $error9) {
-                                    echo '- ' . $error9;
+
+                                    foreach ($errors9 as $error9) {
+                                        echo '- ' . $error9;
+                                    }
                                 }
-                                
-                            }
-                            ?>
+                                ?>
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-lock"></span>
@@ -314,8 +310,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
-                          Check me out
-                        </label>
+                                    Check me out
+                                </label>
                             </div>
                         </div>
                         <div class="mb-3">

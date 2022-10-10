@@ -1,5 +1,8 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
 class ImageUpload
 {
     public static function upload($file)
@@ -21,7 +24,7 @@ class ImageUpload
             if ($fileError === 0) {
                 if ($fileSize < 1000000) {
                     $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-                    $fileDestination = '../uploads/images/'. $fileNameNew;
+                    $fileDestination = '../uploads/images/' . $fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
                     return $fileNameNew;
                 } else {
