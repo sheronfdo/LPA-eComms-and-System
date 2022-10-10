@@ -71,8 +71,6 @@ error_reporting(E_ALL);
 
     </nav>
     <!-- /.navbar -->
-
-
     <!-- Main Sidebar Container -->
     <?php
     include 'sidebar.php';
