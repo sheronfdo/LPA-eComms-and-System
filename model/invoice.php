@@ -24,27 +24,7 @@ class Invoice
      * @param $invoice_status
      */
 
-<<<<<<< HEAD
-         public function __constructwithoutId($invoice_id, $invoice_date, $invoice_client_id, $invoice_client_name, $invoice_client_address, $invoice_amount, $invoice_status)
-         {
-            $this->invoice_id = $invoice_id;
-            $this->invoice_date = $invoice_date;
-            $this->invoice_client_id = $invoice_client_id;
-            $this->invoice_client_name = $invoice_client_name;
-            $this->invoice_client_address = $invoice_client_address;
-            $this->invoice_amount = $invoice_amount;
-            $this->invoice_status = $invoice_status;
-         }
-         
-         /**
-         * @return mixed
-         */
-        public function getInvoiceId()
-        {
-            return $this->invoice_id;
-        }
-=======
-    public function __construct($invoice_id, $invoice_date, $invoice_client_id, $invoice_client_name, $invoice_client_address, $invoice_amount, $invoice_status)
+    public function __constructwithoutId($invoice_id, $invoice_date, $invoice_client_id, $invoice_client_name, $invoice_client_address, $invoice_amount, $invoice_status)
     {
         $this->invoice_id = $invoice_id;
         $this->invoice_date = $invoice_date;
@@ -54,7 +34,6 @@ class Invoice
         $this->invoice_amount = $invoice_amount;
         $this->invoice_status = $invoice_status;
     }
->>>>>>> 23fab82839209d3c38b96a524a462368bc37beb6
 
     /**
      * @return mixed
@@ -63,6 +42,8 @@ class Invoice
     {
         return $this->invoice_id;
     }
+
+
 
     /**
      * @param mixed $invoice_id

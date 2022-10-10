@@ -33,6 +33,10 @@ class Cart
     {
         $this->lpa_client_id = $lpa_client_id;
     }
+    public function getClientId()
+    {
+        return $this->lpa_client_id;
+    }
 
     public function getStockId()
     {

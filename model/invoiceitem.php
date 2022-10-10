@@ -24,27 +24,7 @@ class InvoiceItem
      * @param $inv_status
      */
 
-<<<<<<< HEAD
-         public function __constructWithoutId($invitem_id, $invitem_stock_id, $invitem_stock_name, $invitem_stock_qty, $invitem_stock_price, $invitem_stock_amount, $inv_status)
-         {
-            $this->invitem_id = $invitem_id;
-            $this->invitem_stock_id = $invitem_stock_id;
-            $this->invitem_stock_name = $invitem_stock_name;
-            $this->invitem_stock_qty = $invitem_stock_qty;
-            $this->invitem_stock_price = $invitem_stock_price;
-            $this->invitem_stock_amount = $invitem_stock_amount;
-            $this->inv_status = $inv_status;
-         }
-         
-         /**
-         * @return mixed
-         */
-        public function getInvItemId()
-        {
-            return $this->invitem_id;
-        }
-=======
-    public function __construct($invitem_id, $invitem_stock_id, $invitem_stock_name, $invitem_stock_qty, $invitem_stock_price, $invitem_stock_amount, $inv_status)
+    public function __constructWithoutId($invitem_id, $invitem_stock_id, $invitem_stock_name, $invitem_stock_qty, $invitem_stock_price, $invitem_stock_amount, $inv_status)
     {
         $this->invitem_id = $invitem_id;
         $this->invitem_stock_id = $invitem_stock_id;
@@ -54,15 +34,16 @@ class InvoiceItem
         $this->invitem_stock_amount = $invitem_stock_amount;
         $this->inv_status = $inv_status;
     }
->>>>>>> 23fab82839209d3c38b96a524a462368bc37beb6
 
     /**
      * @return mixed
      */
     public function getInvItemId()
     {
-        return $this->invinvitem_idoice_id;
+        return $this->invitem_id;
     }
+
+
 
     /**
      * @param mixed $invitem_id

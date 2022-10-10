@@ -136,7 +136,9 @@ if(isset($_POST['place'])){
             <p>Hey, <span id="username_checkout"> username</span> <br> Thank you for purchasing products at LPA eComms! Your payment has been confirmed. Your Order is now Complete.
                 <hr id="normal">
                 <p class="mb-2">LPA eComms</p>
+                <form action="cart.php">
                 <a href="index.html"> <button class="btn-outline-danger">close</button></a>
+                </form>
         </div>
     </section>
 
