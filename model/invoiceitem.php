@@ -19,7 +19,7 @@ class InvoiceItem{
          * @param $inv_status
          */
 
-         public function __construct($invitem_id, $invitem_stock_id, $invitem_stock_name, $invitem_stock_qty, $invitem_stock_price, $invitem_stock_amount, $inv_status)
+         public function __constructWithoutId($invitem_id, $invitem_stock_id, $invitem_stock_name, $invitem_stock_qty, $invitem_stock_price, $invitem_stock_amount, $inv_status)
          {
             $this->invitem_id = $invitem_id;
             $this->invitem_stock_id = $invitem_stock_id;
@@ -35,7 +35,7 @@ class InvoiceItem{
          */
         public function getInvItemId()
         {
-            return $this->invinvitem_idoice_id;
+            return $this->invitem_id;
         }
 
         /**

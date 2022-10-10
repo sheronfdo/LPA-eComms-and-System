@@ -16,7 +16,7 @@
         $this->db->insertIntoDb($query);
         }
         public function delete(){
-            $query = "UPDATE `lpa_cart` SET status = '0' WHERE lpa_stock_id = '" . $this->getCartId() . "'";
+            $query = "UPDATE `lpa_cart` SET status = '0' WHERE lpa_stock_id = '" . $this->getCartId() . "' AND lpa_client_id='" . $this->getClientId() . "'";
            
         $this->db->insertIntoDb($query);
         }

@@ -1,6 +1,6 @@
 <?php 
-    require_once  "../model/invoice.php";
-    require_once "../database/database.php";
+    require_once  "model/invoice.php";
+    require_once "database/database.php";
 
     class InvoiceService extends Invoice{
 

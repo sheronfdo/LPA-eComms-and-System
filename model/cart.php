@@ -17,9 +17,10 @@ class Cart{
 
          }
 
-         public function __constructWithtId($cartId)
+         public function __constructWithtId($cartId,$lpa_client_id)
          {
             $this->cartId = $cartId;
+            $this->lpa_client_id = $lpa_client_id;
 
 
 

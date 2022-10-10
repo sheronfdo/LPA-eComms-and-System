@@ -19,7 +19,7 @@ class Invoice{
          * @param $invoice_status
          */
 
-         public function __construct($invoice_id, $invoice_date, $invoice_client_id, $invoice_client_name, $invoice_client_address, $invoice_amount, $invoice_status)
+         public function __constructwithoutId($invoice_id, $invoice_date, $invoice_client_id, $invoice_client_name, $invoice_client_address, $invoice_amount, $invoice_status)
          {
             $this->invoice_id = $invoice_id;
             $this->invoice_date = $invoice_date;
