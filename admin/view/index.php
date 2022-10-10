@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
 error_reporting(E_ALL);
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '')) {
 ?>
+    <script type="text/javascript">
+        location.href = 'login.php';
+    </script>
+<?php
+    exit();
+}
+ ?>
+
+<!DOCTYPE html>
+<html lang="en"></html>
 
 <head>
   <meta charset="utf-8">

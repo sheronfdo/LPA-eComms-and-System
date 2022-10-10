@@ -1,3 +1,47 @@
+<?php
+session_start();
+require_once('../database/database.php');
+$errors1 = array();
+$errors2 = array();
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['loginSubmit'])) {
+        $username = stripslashes($_POST['uname']);
+        $password = stripslashes($_POST['pass']);
+        $md5pass = md5($password);
+
+        if (empty($username)) {
+            $errors1[] = 'Username is Required';
+        }
+        if (empty($password)) {
+            $errors2[] = 'Password is Required';
+        }if(!empty($username) && !empty($password)){
+            $db = new dbConnect();
+            $result = $db->getfromdb("SELECT lpa_user_ID,lpa_user_username,lpa_user_password FROM lpa_users WHERE lpa_user_username='$username' && lpa_user_password='$md5pass'");
+            while ($row = mysqli_fetch_array($result)) { 
+                $user_id = $row['lpa_user_ID']; 
+                $user_name = $row['lpa_user_username'];
+            }
+            $_SESSION['sess_admin_id'] = $user_id; 
+            $_SESSION['sess_admin_username'] = $user_name;
+
+            if (mysqli_num_rows($result) > 0) {
+           
+                echo '<script> alert("Admin Login Successfully"); </script>';
+                echo "<script> window.location.href='index.php';
+                </script>";
+                } else if(mysqli_num_rows($result) == 0){
+                    echo "<script> window.location.href='login.php?error=Incorect User name or password';</script>";
+                }
+        }
+      
+
+       
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +70,18 @@
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="index.php" method="post">
+                <form action="login.php" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="username" name="uname" class="form-control" placeholder="<?php
+                                                                                                        if (!empty($errors1)) {
+
+                                                                                                            foreach ($errors1 as $error1) {
+                                                                                                                echo '- ' . $error1;
+                                                                                                            }
+                                                                                                        } else {
+                                                                                                            echo "Username";
+                                                                                                        }
+                                                                                                        ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -36,7 +89,16 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" name="pass" class="form-control" placeholder="<?php
+                                                                                                        if (!empty($errors2)) {
+
+                                                                                                            foreach ($errors2 as $error2) {
+                                                                                                                echo '- ' . $error2;
+                                                                                                            }
+                                                                                                        } else {
+                                                                                                            echo "Password";
+                                                                                                        }
+                                                                                                        ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -44,17 +106,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                Remember Me
-              </label>
-                            </div>
-                        </div>
+                        
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                            <button type="submit" name="loginSubmit" class="btn btn-primary btn-block">Log In</button>
                         </div>
                         <!-- /.col -->
                     </div>

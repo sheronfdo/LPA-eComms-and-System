@@ -1,9 +1,77 @@
+
 <?php
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+error_reporting(E_ALL);
 require_once('../service/userservice.php');
 
+$errors1 = array();
+$errors2 = array();
+$errors3 = array();
+$errors4 = array();
+$errors5 = array();
+$errors6 = array();
+$errors7 = array();
+$errors8 = array();
+$errors9 = array();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['submitbtn'])) {
+
+        $db = new dbconnect();
+        $result = $db->getfromdb("SELECT * FROM lpa_users order by lpa_user_ID desc limit 1");
+        $row = mysqli_fetch_array($result);
+        $lastid = $row['lpa_user_ID'];
+
+        if ($lastid == " ") {
+            $userId = "USR1";
+        } else {
+            $userId = substr($lastid, 3);
+            $userId = intval($userId);
+            $userId = "USR" . ($userId + 1);
+        }
+
+        $firstname = $_POST['fname'];
+        $lastname = $_POST['lname'];
+        $username = $_POST['uname'];
+        $password = $_POST['pass'];
+        $repassword = $_POST['repass'];
+        $group = $_POST['groupname'];
+        $status = "1";
 
 
+        if (empty($firstname)) {
+            $errors1[] = 'Firstname is Required';
+        }
+        if (empty($lastname)) {
+            $errors2[] = 'Lastname is Required';
+        }
+        if (empty($username)) {
+            $errors6[] = 'Username is Required';
+        }
+        if (empty($password)) {
+            $errors7[] = 'Password is Required';
+        }
+        if (empty($repassword)) {
+            $errors8[] = 'Re password is Required';
+        }
+        if (!empty($firstname) && !empty($lastname) && !empty($username) && !empty($password) && !empty($repassword)) {
 
+            if ($password == $repassword) {
+                $md5Password = md5($password);
+                $userService = new UserService();
+                //echo $userId . "<br>". $username. "<br>". $md5Password. "<br>". $firstname. "<br>". $lastname. "<br>". $group. "<br>". $status;
+                $userService->__constructWithId($userId, $username, $md5Password, $firstname, $lastname, $group, $status);
+                $userService->insertUser();
+                echo '<script> alert("Admin Registered Successfully"); </script>';
+                echo "<script> window.location.href='index.php';</script>";
+            } else {
+                $errors9[] = 'Password Not Match';
+            }
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +81,7 @@ require_once('../service/userservice.php');
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>LPA eComms | Sales and Invoicing</title>
+        <title>LPA eComms | Manage Admin</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -119,7 +187,7 @@ require_once('../service/userservice.php');
                                 }
                               
                             }else{
-                                echo "First Name";
+                                echo "Firstname";
                             }
 
                             ?>">
@@ -139,7 +207,7 @@ require_once('../service/userservice.php');
                                 }
                                 
                             }else{
-                                echo "Last Name";
+                                echo "Lastname";
                             }
                             ?>">
                                
@@ -231,14 +299,15 @@ require_once('../service/userservice.php');
 
                         </div>
                         <div class="input-group col-md-6 mb-3">
-                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Group Select..">
-                            <datalist id="datalistOptions">
-                            <option value="San Francisco">
-                            <option value="New York">
-                            <option value="Seattle">
-                            <option value="Los Angeles">
-                            <option value="Chicago">
-                            </datalist>
+                        
+                           <select name="groupname" class="form-control">
+                           <option value="">Select Group Name</option>
+                           <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                            <option value="Manager">Manager</option>
+                           </select>
+                            
+                            
                         </div>
 
                         
