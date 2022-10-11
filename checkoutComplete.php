@@ -103,7 +103,7 @@ if(isset($_POST['place'])){
            }}
            $invItemId = $invItemId+1;
            $total = $qty*$amount;
-       $invoiceItem->__constructWithoutId($invItemId, $id, $nameItem, $qty, $amount, $total, '1');
+       $invoiceItem->__constructWithoutId($invId, $id, $nameItem, $qty, $amount, $total, '1');
        $invoiceItem-> insert();
        $clientId = $_SESSION['clientid'];
        $cart->__constructWithtId($id,$clientId);

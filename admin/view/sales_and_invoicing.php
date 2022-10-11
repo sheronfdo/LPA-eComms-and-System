@@ -112,7 +112,7 @@ error_reporting(E_ALL);
                 </h3>
 
               </div>
-
+              <form action="../../invoiceItem.php" method="post">
 
               <!-- /.card-header -->
               <div class="card-body">
@@ -129,6 +129,7 @@ error_reporting(E_ALL);
                     </tr>
                   </thead>
                   <tbody>
+                   
                     <?php
                     require_once "../database/database.php";
 
@@ -141,7 +142,8 @@ error_reporting(E_ALL);
                         "<td>" . $row['lpa_inv_client_ID'] . "</td>" .
                         "<td>" . $row['lpa_inv_date'] . "</td>" .
                         "<td>" . $row['lpa_inv_amount'] . "</td>" .
-                        "<td><button class='btn btn-block btn-outline-info'> View </button></td>" .
+
+                        "<td><a href='../../invoiceItem.php?id=". $row['lpa_inv_no'] ."' >view</a></td>".
 
                         "</tr>";
 
@@ -160,8 +162,11 @@ error_reporting(E_ALL);
 
 
                     ?>
+                    
                 </table>
               </div>
+
+              </form>
               <!-- /.card-body -->
             </div>
 
