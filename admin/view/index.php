@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/lpa' . '/log.txt');
+require_once('../database/database.php');
+$db = new dbConnect();
 error_reporting(E_ALL);
 if (!isset($_SESSION)) {
     session_start();
@@ -112,26 +114,30 @@ if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>15.7K</h3>
-
-                  <p>Visitors</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="sales_and_invoicing.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
+            
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>$ 53000</h3>
+                <?php 
+
+                  $query = "SELECT Sum(lpa_invoices.lpa_inv_amount) AS incom FROM lpa_invoices WHERE lpa_invoices.lpa_inv_status = '1'"; 
+                  $result = $db->getfromdb($query);
+                  $resultCheck = mysqli_num_rows($result);
+
+                     if ($resultCheck > 0) {
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                          $count = $row["incom"];
+                        }
+                  }
+
+                    echo '
+
+                      <h3>$' . $count .'</h3>';
+
+                    ?>
 
                   <p>Income</p>
                 </div>
@@ -142,11 +148,28 @@ if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>50M</h3>
+                <?php 
+
+                    $query = "SELECT Count(lpa_users.lpa_user_ID) AS user_count FROM lpa_users WHERE lpa_users.lpa_inv_status = '1'"; 
+                    $result = $db->getfromdb($query);
+                    $resultCheck = mysqli_num_rows($result);
+
+                       if ($resultCheck > 0) {
+
+                              while ($row = mysqli_fetch_assoc($result)) {
+                                    $count = $row["user_count"];
+                              }
+                       }
+
+                         echo '
+
+                          <h3>' . $count .'</h3>';
+
+                        ?>
 
                   <p>Users</p>
                 </div>
@@ -157,13 +180,30 @@ if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>45.590</h3>
+                <?php 
 
-                  <p>Weekly Orders</p>
+                     $query = "SELECT Count(lpa_clients.lpa_client_ID) AS customer_count FROM lpa_clients WHERE lpa_clients.lpa_client_status = '1'"; 
+                     $result = $db->getfromdb($query);
+                     $resultCheck = mysqli_num_rows($result);
+
+                            if ($resultCheck > 0) {
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                     $count = $row["customer_count"];
+                                }
+                            }
+
+                           echo '
+
+                        <h3>' . $count .'</h3>';
+
+                ?>
+
+                  <p>Customers</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-plus"></i>
