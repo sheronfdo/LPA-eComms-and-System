@@ -3,3 +3,21 @@
 [10-Oct-2022 15:52:07 UTC] PHP Fatal error:  require_once(): Failed opening required '../model/invoice.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\LPA\service\invoiceservice.php on line 6
 [10-Oct-2022 15:52:53 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) in C:\Apache24\htdocs\LPA\model\invoiceitem.php on line 27
 [10-Oct-2022 15:53:41 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) in C:\Apache24\htdocs\LPA\model\invoiceitem.php on line 27
+[11-Oct-2022 18:35:18 UTC] PHP Warning:  mysqli_connect(): (HY000/2006): MySQL server has gone away in C:\Apache24\htdocs\LPA\admin\database\database.php on line 19
+[11-Oct-2022 18:35:18 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Apache24\htdocs\LPA\admin\database\database.php on line 19
+[11-Oct-2022 18:35:18 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Apache24\htdocs\LPA\admin\view\sidebar.php on line 8
+[11-Oct-2022 18:36:36 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Apache24\htdocs\LPA\admin\database\database.php on line 19
+[11-Oct-2022 20:32:01 UTC] PHP Notice:  Undefined variable: user_id in C:\Apache24\htdocs\LPA\admin\view\login.php on line 29
+[11-Oct-2022 20:32:01 UTC] PHP Notice:  Undefined variable: user_name in C:\Apache24\htdocs\LPA\admin\view\login.php on line 30
+[11-Oct-2022 20:53:34 UTC] PHP Notice:  Undefined variable: row2 in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:53:34 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:54:01 UTC] PHP Notice:  Undefined variable: row2 in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:54:01 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:54:09 UTC] PHP Notice:  Undefined variable: row2 in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:54:09 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:54:17 UTC] PHP Notice:  Undefined variable: row2 in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:54:17 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:55:19 UTC] PHP Notice:  Undefined variable: row2 in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:55:19 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:55:55 UTC] PHP Notice:  Undefined index: lpa_stock_image in C:\Apache24\htdocs\LPA\invoiceItem.php on line 100
+[11-Oct-2022 20:58:31 UTC] PHP Notice:  Undefined index: id in C:\Apache24\htdocs\LPA\invoiceItem.php on line 66
