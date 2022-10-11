@@ -135,22 +135,23 @@ error_reporting(E_ALL);
                                             <p class="mt-3 mb-1">
                                                 <label for="itemPrice">Item Status</label>
 
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="status" id="active" value="1" checked>
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                    Active
-                                                </label>
+                                                <div class="row container">
+
+                                            <div class="custom-control custom-radio mb-1">
+                                                <input class="custom-control-input custom-control-input-success" type="radio" name="status" id="active" value="1" checked>
+                                                <label for="active" class="custom-control-label">Active</label>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="status" id="inactive" value="0">
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                    Inactive
-                                                </label>
+                                            <div class="custom-control custom-radio mx-5">
+                                                <input class="custom-control-input custom-control-input-danger" type="radio" name="status" id="inactive" value="0">
+                                                <label for="inactive" class="custom-control-label">Inactive</label>
                                             </div>
+
+                                            </div>
+
                                         </div>
                                         <!-- /.card-body -->
 
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label for="itemImage">Item Image</label>
                                             <div>
                                                 <!-- <label for="customFile">Custom File</label> -->

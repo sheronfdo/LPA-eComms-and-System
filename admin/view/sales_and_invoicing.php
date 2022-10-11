@@ -116,7 +116,7 @@ error_reporting(E_ALL);
 
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>Invoice ID</th>
@@ -262,6 +262,7 @@ error_reporting(E_ALL);
         "info": true,
         "autoWidth": false,
         "responsive": true,
+        "buttons": ["copy", "csv", "excel", "pdf", "print"]
       });
     });
   </script>
