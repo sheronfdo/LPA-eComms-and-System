@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LPA eComms | Sales and Invoicing</title>
+  <title>LPA eComms | View Invoice</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -43,6 +43,10 @@ error_reporting(E_ALL);
   <style>
     #total {
       color: red;
+    }
+    #prodimg {
+      width: 70px;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -102,34 +106,59 @@ error_reporting(E_ALL);
 
           </div>
 
-          <section class="content col-12">
 
-            <div class="card">
+          <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
 
-              <div class="card-header">
-                <h3 class="card-title">
-                  <h1 class="m-0">View Invoice</h1>
-                </h3>
+                  <!-- Main content -->
+                  <div class="invoice p-3 mb-3">
+                    <!-- title row -->
+                    <div class="row mb-2">
+                      <div class="col-12">
+                        <h4>
+                        <img src="images/LPA.png" alt="LPA Logo" width="40px"> LPA eComms
+                          <small class="float-right">Date: 11/10/2022</small>
+                        </h4>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info mb-3">
 
-              </div>
+                      <!-- /.col -->
+                      <div class="col-sm-4 invoice-col">
+                        <b>Invoice ID : <span id="invoiceId">1234</span></b><br>
+                      </div>
+                      <div class="col-sm-4 invoice-col">
+                        <b>Customer ID : <span id="cusId">27373</span></b><br>
+                      </div>
+                      <div class="col-sm-4 invoice-col">
+                        <b>Customer Name : <span id="cusName">Mr.Steve</span></b><br>
+                      </div>
 
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
 
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>Invoice ID</th>
-                      <th>Customer ID</th>
-                      <th>Date</th>
-                      <th>Amount</th>
-                      <th>View Invoice</th>
-                      
+                    <!-- Table row -->
+                    <div class="row">
+                      <div class="col-12 table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>Item ID</th>
+                              <th>Image</th>
+                              <th>Name</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Subtotal</th>
+                            </tr>
+                          </thead>
+                          <tbody>
 
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
+                          <?php
                     require_once "../database/database.php";
 
                     $db = new dbconnect();
@@ -139,35 +168,63 @@ error_reporting(E_ALL);
                     while ($row = $result->fetch_assoc()) {
                       echo "<tr>" . "<td>" .
                         $row['lpa_stock_ID'] . "</td>" .
+                        "<td><img id=\"prodimg\" src=\"../uploads/images/" . $row['lpa_stock_image'] . "\" alt=\"deleted\"></td>" .
                         "<td>" . $row['lpa_stock_name'] . "</td>" .
-                        "<td>" . $row['lpa_stock_desc'] . "</td>" .
+                       
+                        "<td>" . $row['lpa_stock_onhand'] . "</td>" .
                         "<td>" . $row['lpa_stock_price'] . "</td>" .
-                        "<td><button class='btn btn-block btn-outline-info'> View </button></td>" .
-
+                        "<td>" . $row['lpa_stock_price'] . "</td>" .
                         "</tr>";
                     }
 
                     ?>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                      <!-- accepted payments column -->
+                      <div class="col-6">
+
+                        <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+                          LPA eComms<br>
+                          PHONE : (12)4446464646
+                          <br>
+                          ADDRESS : No13 Road, LPA eComms
+                          <br>
+                          EMAIL : lpaecomms@gmail.com
+                        </p>
+                      </div>
+                      <!-- /.col -->
+                      <div class="col-6">
+                        <p class="lead">Amount</p>
+
+                        <div class="table-responsive">
+                          <table class="table">
+                          
+                            <tr>
+                              <th>Total:</th>
+                              <td id="invTotal"> <h4> $265.24</h4></td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
 
 
+                  </div>
+                  <!-- /.invoice -->
+                </div><!-- /.col -->
+              </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
           </section>
 
-          <section class="container">
-            <div class="row container">
-              <div>
-                <h3 class="mx-2">Total :</h3>
-              </div>
-              <div>
-                <h3> $265050</h3>
-              </div>
-            </div>
-          </section>
 
-      
 
         </div>
       </div>
