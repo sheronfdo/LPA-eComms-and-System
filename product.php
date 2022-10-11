@@ -124,7 +124,7 @@ if (!isset($_SESSION)) {
     <h2>' . $price . '</h2>
    
 </form>
-    <input type="number" value="1" name= "qty">
+    <input type="number" min="0" value="1" name= "qty">
     <button class="buy-btn" name="cart" value = ' . $pId . '>Add To Cart</button>
 
     <h4 class="mt-5 mb-5">Product Details</h4>
