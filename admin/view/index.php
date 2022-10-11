@@ -116,9 +116,9 @@ if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>15.7K</h3>
 
-                  <p>Orders</p>
+                  <p>Visitors</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -146,9 +146,9 @@ if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>50</h3>
+                  <h3>50M</h3>
 
-                  <p>Products</p>
+                  <p>Users</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-laptop"></i>
@@ -161,9 +161,9 @@ if (!isset($_SESSION['sess_admin_id']) || (trim($_SESSION['sess_admin_id']) == '
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>+</h3>
+                  <h3>45.590</h3>
 
-                  <p>Add New Stock</p>
+                  <p>Weekly Orders</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-plus"></i>
