@@ -127,7 +127,7 @@ error_reporting(E_ALL);
                     require_once "../database/database.php";
 
                     $db = new dbconnect();
-                    $result = $db->getfromdb("SELECT lpa_stock.`lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, `lpa_stock_status`, lpa_stock_image FROM `lpa_stock`
+                    $result = $db->getfromdb("SELECT lpa_stock.`lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, lpa_stock_image FROM `lpa_stock`
                     join lpa_stock_image on lpa_stock.lpa_stock_id=lpa_stock_image.lpa_stock_id");
 
                     while ($row = $result->fetch_assoc()) {
@@ -141,6 +141,8 @@ error_reporting(E_ALL);
                         "<td><button class='btn btn-block btn-outline-info'> Edit </button><button class='btn btn-block btn-outline-danger'> Delete </button></td>" .
                         "</tr>";
                     }
+
+                    
 
                     ?>
                 </table>

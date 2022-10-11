@@ -124,7 +124,7 @@ error_reporting(E_ALL);
                       <th>Date</th>
                       <th>Amount</th>
                       <th>View Invoice</th>
-                      
+
 
                     </tr>
                   </thead>
@@ -133,19 +133,31 @@ error_reporting(E_ALL);
                     require_once "../database/database.php";
 
                     $db = new dbconnect();
-                    $result = $db->getfromdb("SELECT lpa_stock.`lpa_stock_ID`, `lpa_stock_name`, `lpa_stock_desc`, `lpa_stock_onhand`, `lpa_stock_price`, `lpa_stock_status`, lpa_stock_image FROM `lpa_stock`
-                    join lpa_stock_image on lpa_stock.lpa_stock_id=lpa_stock_image.lpa_stock_id");
+                    $result = $db->getfromdb("SELECT lpa_invoices.`lpa_inv_no`, `lpa_inv_client_ID`, `lpa_inv_date`, lpa_inv_amount FROM `lpa_invoices`");
 
                     while ($row = $result->fetch_assoc()) {
                       echo "<tr>" . "<td>" .
-                        $row['lpa_stock_ID'] . "</td>" .
-                        "<td>" . $row['lpa_stock_name'] . "</td>" .
-                        "<td>" . $row['lpa_stock_desc'] . "</td>" .
-                        "<td>" . $row['lpa_stock_price'] . "</td>" .
+                        $row['lpa_inv_no'] . "</td>" .
+                        "<td>" . $row['lpa_inv_client_ID'] . "</td>" .
+                        "<td>" . $row['lpa_inv_date'] . "</td>" .
+                        "<td>" . $row['lpa_inv_amount'] . "</td>" .
                         "<td><button class='btn btn-block btn-outline-info'> View </button></td>" .
 
                         "</tr>";
+
+                        $db = new dbconnect();
+                        $result1 = $db->getfromdb("SELECT SUM(lpa_inv_amount) AS count 
+                        FROM lpa_invoices");
+    
+                        $total = 0;
+                        while ($rec = $result1->fetch_assoc()) {
+                          $total += $rec['count'];
+                        }
                     }
+
+                 
+
+
 
                     ?>
                 </table>
@@ -162,12 +174,12 @@ error_reporting(E_ALL);
                 <h3 class="mx-2">Total :</h3>
               </div>
               <div>
-                <h3> $265050</h3>
+                <h3> <?php echo $total; ?></h3>
               </div>
             </div>
           </section>
 
-      
+
 
         </div>
       </div>
