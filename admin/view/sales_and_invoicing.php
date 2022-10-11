@@ -143,7 +143,7 @@ error_reporting(E_ALL);
                         "<td>" . $row['lpa_inv_date'] . "</td>" .
                         "<td>" . $row['lpa_inv_amount'] . "</td>" .
 
-                        "<td><a href='../../invoiceItem.php?id=". $row['lpa_inv_no'] ."' >view</a></td>".
+                        "<td><a href='../../invoiceItem.php?id=". $row['lpa_inv_no'] ."' class='btn btn-block btn-outline-primary' >view</a></td>".
 
                         "</tr>";
 
