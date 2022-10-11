@@ -119,7 +119,7 @@ error_reporting(E_ALL);
                       <th>Item Description</th>
                       <th>Item Qty</th>
                       <th>Item Price</th>
-                      <th>Edit Details</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -138,7 +138,7 @@ error_reporting(E_ALL);
                         "<td>" . $row['lpa_stock_desc'] . "</td>" .
                         "<td>" . $row['lpa_stock_onhand'] . "</td>" .
                         "<td>" . $row['lpa_stock_price'] . "</td>" .
-                        "<td><button class='btn btn-block btn-outline-info'> Edit </button><button class='btn btn-block btn-outline-danger'> Delete </button></td>" .
+                       
                         "</tr>";
                     }
 
